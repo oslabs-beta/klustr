@@ -5,16 +5,9 @@ const PORT = 3000;
 
 const app = express();
 
+const adminRouter = require('./routes/adminRouter');
+
 app.use(express.json());
-
-const { Kafka } = require('kafkajs');
-
-const kafka = new Kafka({
-  clientId: 'kafka-specks',
-  brokers: ['localhost:9092'],
-});
-
-const admin = kafka.admin();
 
 //if (process.env.NODE_ENV === 'production') {
 // statically serve everything in the build folder on the route '/build'
@@ -24,6 +17,9 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 //}
+
+// define route handler
+app.use('/admin', adminRouter);
 
 app.use((err, req, res, next) => {
   const defaultErr = {
@@ -40,4 +36,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 }); //listens on port 3000 -> http://localhost:3000/
 
-module.exports { app, admin } 
+// module.exports = {app, kafka, admin} ?
