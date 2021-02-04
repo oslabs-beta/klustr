@@ -5,6 +5,8 @@ const PORT = 3000;
 
 const app = express();
 
+const adminRouter = require('./routes/adminRouter');
+
 app.use(express.json());
 
 //if (process.env.NODE_ENV === 'production') {
@@ -15,6 +17,9 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 //}
+
+// define route handler
+app.use('/admin', adminRouter);
 
 app.use((err, req, res, next) => {
   const defaultErr = {
@@ -30,3 +35,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 }); //listens on port 3000 -> http://localhost:3000/
+
+// module.exports = {app, kafka, admin} ?
