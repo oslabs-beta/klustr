@@ -32,6 +32,7 @@ module.exports = {
     publicPath: '/dist/',
     // contentBase: path.resolve(__dirname, "client/index.html"),
     proxy: {
+      '/': 'http://localhost:3000',
       '/api': 'http://localhost:3000',
       '/otherApi': 'http://localhost:3000',
     },
