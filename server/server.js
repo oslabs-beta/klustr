@@ -7,6 +7,15 @@ const app = express();
 
 app.use(express.json());
 
+const { Kafka } = require('kafkajs');
+
+const kafka = new Kafka({
+  clientId: 'kafka-specks',
+  brokers: ['localhost:9092'],
+});
+
+const admin = kafka.admin();
+
 //if (process.env.NODE_ENV === 'production') {
 // statically serve everything in the build folder on the route '/build'
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
@@ -30,3 +39,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 }); //listens on port 3000 -> http://localhost:3000/
+
+module.exports { app, admin } 
