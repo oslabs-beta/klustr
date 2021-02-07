@@ -1,8 +1,7 @@
 const express = require('express');
+const router = express.Router();
 
 const adminController = require('../controllers/adminController');
-
-const router = express.Router();
 
 //sends an array of topics. Each element in the array is a string with the topic name.
 router.get('/topics', adminController.getTopics, (req, res) =>
