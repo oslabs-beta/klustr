@@ -1,13 +1,24 @@
-const express = require('express');
 const path = require('path');
+
+const express = require('express');
+const app = express();
 
 const PORT = 3000;
 
-const app = express();
-
+// require routers
 const adminRouter = require('./routes/adminRouter');
 
+// parsing JSON bodies
 app.use(express.json());
+
+// flow check
+app.use((req, res, next) => {
+  console.log(`
+  🌊🌊🌊 FLOW METHOD 🌊🌊🌊\n
+  URL: ${req.url}\n
+  METHOD: ${req.method}\n`);
+  return next();
+});
 
 //if (process.env.NODE_ENV === 'production') {
 // statically serve everything in the build folder on the route '/build'
@@ -33,7 +44,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Server listening on port ⛵ ${PORT} ⛵`);
 }); //listens on port 3000 -> http://localhost:3000/
 
 // module.exports = {app, kafka, admin} ?
