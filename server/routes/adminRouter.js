@@ -8,8 +8,9 @@ router.get('/topics', adminController.getTopics, (req, res) =>
   res.status(200).json([...res.locals.topics])
 );
 
-//sends an array of partitions. Each element in the array is an object. "partitionId" is the key that gives you the partition ID. "replicas" is the key that gives you an array of replica assignments.
-//sends an array of partition objects, with most recent offset information 'high' and earliest offset positionb 'low'
+//send an object with two keys. "partitions" holds the array of partitions. "offsets" holds the array of offsets.
+//each element in the partition array is an object. "partitionId" is the key that gives you the partition ID. "replicas" is the key that gives you an array of replica assignments.
+//each element in the offset array is an object, with most recent offset information 'high' and earliest offset position 'low'
 router.get(
   '/partitionInfo/:topic',
   adminController.getPartitions,
