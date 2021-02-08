@@ -5,14 +5,15 @@ import ConsumersBox from '../components/ConsumersBox.jsx';
 
 function MetricsContainer() {
   // hooks
-    // Cluster ID (string) ** Needs to be verified by Team 2 (need to be grabbed from describe cluster)
-    // Brokers Info (Array of Objects)
-    // Topics (Array of Objects
-    // Consumer Groups (Array of Objects)
+  // Cluster ID (string) ** Needs to be verified by Team 2 (need to be grabbed from describe cluster)
+  // Brokers Info (Array of Objects)
+  // Topics (Array of Objects)
+    // Partitions (Array of Objects) ** May not be needed?
+    // Offsets (Array of Objects)
+  // Consumer Group (Array of Objects)
+    // In object: Consumer ID
 
-  
   // useEffect to update all the states?
-
 
   return (
     <div>

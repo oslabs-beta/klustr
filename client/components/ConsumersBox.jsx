@@ -1,9 +1,17 @@
-import React from 'react';
+import React from 'react'
+import ConsumerGroup from './ConsumerGroup.jsx'
 
 function ConsumersBox() {
+  //grab the consumer group state
+
+  const groups = [];
+
+  //add <ConsumerGroup
+
   return (
     <div>
-      <p>ConsumersBox here</p>
+      <h4>CONSUMER GROUPS</h4>
+      {/* {groups} */}
     </div>
   );
 }
