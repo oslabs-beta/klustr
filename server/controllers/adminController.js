@@ -5,9 +5,7 @@ const adminController = {};
 adminController.getTopics = async (req, res, next) => {
   try {
     const arrayOfTopics = await admin.listTopics();
-    console.log('Array of Topics', arrayOfTopics);
     res.locals.topics = [...arrayOfTopics];
-    console.log('res.locals.topics');
     return next();
   } catch (err) {
     console.log(err);
@@ -26,12 +24,20 @@ adminController.getPartitions = async (req, res, next) => {
   }
 };
 
-//
+adminController.getTopicOffsets = async (req, res, next) => {
+  try {
+    const topicOffsets = await admin.fetchTopicOffsets(`${req.params.topic}`);
+    res.locals.offsets = topicOffsets;
+    return next();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 adminController.getBrokerInfo = async (req, res, next) => {
   try {
     const brokerInfo = await admin.describeCluster();
     res.locals.brokerInfo = brokerInfo.brokers;
-    console.log('res locals', res.locals.brokerInfo);
     return next();
   } catch (err) {
     console.log(err);
