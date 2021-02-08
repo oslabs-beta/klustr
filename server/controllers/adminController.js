@@ -26,7 +26,16 @@ adminController.getPartitions = async (req, res, next) => {
   }
 };
 
-//
+adminController.getTopicOffsets = async (req, res, next) => {
+  try {
+    const topicOffsets = await admin.fetchTopicOffsets(`${req.params.topic}`);
+    res.locals.offsets = topicOffsets;
+    return next();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 adminController.getBrokerInfo = async (req, res, next) => {
   try {
     const brokerInfo = await admin.describeCluster();

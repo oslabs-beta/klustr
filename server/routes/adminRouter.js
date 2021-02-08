@@ -8,9 +8,13 @@ router.get('/topics', adminController.getTopics, (req, res) =>
   res.status(200).json([...res.locals.topics])
 );
 
-//sends an array of patitions. Each element in the array is an object. "partitionId" is the key that gives you the partition ID. "replicas" is the key that gives you an array of replica assignments.
-router.get('/partitionInfo/:topic', adminController.getPartitions, (req, res) =>
-  res.status(200).json(res.locals.partitions)
+//sends an array of partitions. Each element in the array is an object. "partitionId" is the key that gives you the partition ID. "replicas" is the key that gives you an array of replica assignments.
+//sends an array of partition objects, with most recent offset information 'high' and earliest offset positionb 'low'
+router.get(
+  '/partitionInfo/:topic',
+  adminController.getPartitions,
+  adminController.getTopicOffsets,
+  (req, res) => res.status(200).json(res.locals)
 );
 
 //sends an array of brokers. Each element in the array in an object. "nodeId" is the key that gives you the broker number.
