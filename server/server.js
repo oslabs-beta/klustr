@@ -6,7 +6,9 @@ const app = express();
 const PORT = 3000;
 
 // require routers
+// console.log('in server.js - before adminRouter');
 const adminRouter = require('./routes/adminRouter');
+// console.log('in server.js - after adminRouter');
 
 // parsing JSON bodies
 app.use(express.json());

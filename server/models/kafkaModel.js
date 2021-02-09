@@ -1,5 +1,7 @@
 const { Kafka } = require('kafkajs');
 
+console.log('in kafka model');
+
 const kafka = new Kafka({
   clientId: 'kafka-specks',
   brokers: ['localhost:9092'],
