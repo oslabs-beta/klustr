@@ -5,6 +5,7 @@ let currentAddress = ['localhost:9092'];
 connectController.setBrokerAddress = (req, res, next) => {
   try {
     const { brokers } = req.body;
+    console.log(brokers);
     currentAddress = brokers;
     res.locals.currentAddress = currentAddress;
     return next();
