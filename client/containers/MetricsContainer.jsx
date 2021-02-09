@@ -8,12 +8,25 @@ function MetricsContainer() {
   // Cluster ID (string) ** Needs to be verified by Team 2 (need to be grabbed from describe cluster)
   // Brokers Info (Array of Objects)
   // Topics (Array of Objects)
-    // Partitions (Array of Objects) ** May not be needed?
-    // Offsets (Array of Objects)
+  // Partitions (Array of Objects) ** May not be needed?
+  // Offsets (Array of Objects)
   // Consumer Group (Array of Objects)
-    // In object: Consumer ID
+  // In object: Consumer ID
+  const [clusterID, setClusterID] = useState('');
+  const [brokers, setBrokers] = useState([]);
+  const [topics, setTopics] = useState([]);
+  const [consumerGroup, setConsumerGroup] = useState([]);
 
-  // useEffect to update all the states?
+  // use one hook to update all the states?
+  const [metrics, setMetrics] = useState(
+    setClusterID('id'),
+    setBrokers(['brokers']),
+    setTopics(['topics']),
+    setConsumerGroup(['consumer group'])
+  );
+
+  // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in Dashboard Container
+  // trigger setMetrics after fetch request to populate Metrics Components
 
   return (
     <div>
