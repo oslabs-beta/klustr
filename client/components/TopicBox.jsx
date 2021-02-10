@@ -1,16 +1,15 @@
 import React from 'react';
-import Topics from './Topics.jsx'
+import Topics from './Topics.jsx';
 
-function TopicBox() {
-
+function TopicBox({ topics }) {
   // prop drill the Brokers Array from Metrics Container?
-  // or hook in directly? 
+  // or hook in directly?
 
   return (
     <div>
       <h4>TOPICS</h4>
       <span>Number of Topics</span>
-      {/* topic component */}
+      <h1>{topics}</h1>
     </div>
   );
 }

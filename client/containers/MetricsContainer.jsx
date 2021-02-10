@@ -12,10 +12,10 @@ function MetricsContainer() {
   // Offsets (Array of Objects)
   // Consumer Group (Array of Objects)
   // In object: Consumer ID
-  const [clusterID, setClusterID] = useState('');
+  const [clusterId, setClusterId] = useState('');
   const [brokers, setBrokers] = useState([]);
   const [topics, setTopics] = useState([]);
-  const [consumerGroup, setConsumerGroup] = useState([]);
+  const [consumers, setConsumers] = useState([]);
 
   // use one hook to update all the states?
   // const [metrics, setMetrics] = useState(
@@ -27,42 +27,114 @@ function MetricsContainer() {
 
   // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in Dashboard Container
 
-  useEffect(() => {
-    // get topics
+  const fetchTopics = () => {
     fetch('/admin/topics', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
-      .then((data) => data.json()) // object with topics array
-      .then((data) => setTopics(data.topics))
-      .catch((err) => console.log(err));
+      .then((response) => response.json())
+      .then((data) => {
+        setTopics((topics) => {
+          topics = data;
+          return topics;
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    // get broker info & cluster ID
+  const fetchBrokerInfo = () => {
     fetch('/admin/brokerInfo', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
-      .then((data) => data.json()) // object
-      .then((data) => setBrokers(data.brokers)) //brokers property, returns  [ { nodeId: 0, host: 'Cerebro', port: 9092 } ]
-      .then((data) => setClusterID(data.clusterID)) //clusterID property, returns '1_le6xdKSCuBQUa6duOmcg'
+      .then((response) => response.json()) // object
+      .then((data) => {
+        setBrokers((brokers) => {
+          brokers = data.brokers;
+          return brokers;
+        }); //brokers property, returns  [ { nodeId: 0, host: 'Cerebro', port: 9092 } ]
+        setClusterId((clusterId) => {
+          clusterId = data.clusterId;
+          return clusterId;
+        }); //clusterID property, returns '1_le6xdKSCuBQUa6duOmcg'
+      })
       .catch((err) => console.log(err));
+  };
 
-    console.log('topics', topics);
-    console.log('cluster', clusterID);
-    console.log('brokers', brokers);
+  const fetchConsumerGroups = () => {
+    fetch('/admin/consumerGroups', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setConsumers(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    // // get topics
+    // fetch('/admin/topics', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // })
+    //   .then((data) => data.json()) // object with topics array
+    //   .then((data) => setTopics(data.topics))
+    //   .catch((err) => console.log(err));
+    fetchTopics();
+    fetchBrokerInfo();
+    fetchConsumerGroups();
+
+    // get broker info & cluster ID
+    // fetch('/admin/brokerInfo', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // })
+    //   .then((data) => data.json()) // object
+    //   .then((data) => setBrokers(data.brokers)) //brokers property, returns  [ { nodeId: 0, host: 'Cerebro', port: 9092 } ]
+    //   .then((data) => setClusterID(data.clusterID)) //clusterID property, returns '1_le6xdKSCuBQUa6duOmcg'
+    //   .catch((err) => console.log(err));
+
+    // console.log('topics', topics);
+    // console.log('cluster', clusterID);
+    // console.log('brokers', brokers);
   }, []);
   // trigger setMetrics after fetch request to populate Metrics Components
 
   return (
     <div>
-      <h1>ClusterID: number from the BE</h1>
-      <BrokerBox />
-      <TopicBox />
-      <ConsumersBox />
+      <h1>ClusterID: {clusterId}</h1>
+      <BrokerBox clusterId={clusterId} brokers={brokers} />
+      <TopicBox topics={topics} />
+      <ConsumersBox consumers={consumers} />
+
+      <div id='testingBox'>
+        <span>{topics}</span>
+        <br />
+        <span>{clusterId}</span>
+        <br />
+        <span>
+          {consumers.map((item) => {
+            return <pre>{JSON.stringify(item)}</pre>;
+          })}
+        </span>
+      </div>
     </div>
   );
 }
