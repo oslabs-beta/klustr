@@ -14,10 +14,12 @@ function BrokerBox() {
   //   brokers.push(<Broker />);
   // });
 
-  return <div>
-    <h4>BROKERS</h4>
-    {/* {brokers} */}
-  </div>;
+  return (
+    <div>
+      <h4>BROKERS</h4>
+      {/* {brokers} */}
+    </div>
+  );
 }
 
 export default BrokerBox;

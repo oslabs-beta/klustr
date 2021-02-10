@@ -119,20 +119,22 @@ function MetricsContainer() {
 
   return (
     <div>
-      <h1>ClusterID: number from the BE</h1>
-      <BrokerBox clusterId={clusterId} />
+      <h1>ClusterID: {clusterId}</h1>
+      <BrokerBox clusterId={clusterId} brokers={brokers} />
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
-      <br />
-      <span>{topics}</span>
-      <br />
-      <span>{clusterId}</span>
-      <br />
-      <span>
-        {consumers.map((item) => {
-          return <pre>{JSON.stringify(item)}</pre>;
-        })}
-      </span>
+
+      <div id='testingBox'>
+        <span>{topics}</span>
+        <br />
+        <span>{clusterId}</span>
+        <br />
+        <span>
+          {consumers.map((item) => {
+            return <pre>{JSON.stringify(item)}</pre>;
+          })}
+        </span>
+      </div>
     </div>
   );
 }
