@@ -131,6 +131,11 @@ function MetricsContainer() {
         <span>{clusterId}</span>
         <br />
         <span>
+          {brokers.map((item) => {
+            return <pre>{JSON.stringify(item)}</pre>;
+          })}
+        </span>
+        <span>
           {consumers.map((item) => {
             return <pre>{JSON.stringify(item)}</pre>;
           })}
