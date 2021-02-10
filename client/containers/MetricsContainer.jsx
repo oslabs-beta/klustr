@@ -37,6 +37,7 @@ function MetricsContainer() {
       .then((response) => response.json())
       .then((data) => {
         setTopics((topics) => {
+          data = data.filter( (topic) => topic !== '__consumer_offsets')
           topics = data;
           return topics;
         });
