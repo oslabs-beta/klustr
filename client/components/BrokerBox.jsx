@@ -1,11 +1,22 @@
 import React from 'react';
 import Broker from './Broker.jsx';
 
-function BrokerBox() {
+function BrokerBox({ brokers }) {
   // const [brokers, setBrokers] = useState([])
 
   // display all broker components
-  const brokers = [];
+  const brokersArray = [];
+
+  for (let i = 0; i < brokers.length; i++) {
+    brokersArray.push(
+      <Broker
+        key={`broker-key-${i}`}
+        port={brokers[i].port}
+        host={brokers[i].host}
+        nodeId={brokers[i].nodeId}
+      />
+    );
+  }
 
   // prop drill the Brokers Array from Metrics Container?
   // or hook in directly?
@@ -15,9 +26,9 @@ function BrokerBox() {
   // });
 
   return (
-    <div>
+    <div className='brokerBox'>
       <h4>BROKERS</h4>
-      {/* {brokers} */}
+      {brokersArray}
     </div>
   );
 }
