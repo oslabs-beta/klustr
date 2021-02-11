@@ -22,24 +22,30 @@ function App() {
       <StyledDashboard>
         <DashboardContainer setRedirect={setRedirect} />
       </StyledDashboard>
-      <Switch>
-        {display}
-        {/* <Route path='/metrics' component={MetricsContainer} /> */}
-        {/* <Route path='/about' component={About} /> */}
-        <Route component={ErrorPage} />
-      </Switch>
+      <StyledPage>
+        <Switch>
+          {display}
+          {/* <Route path='/metrics' component={MetricsContainer} /> */}
+          {/* <Route path='/about' component={About} /> */}
+          <Route component={ErrorPage} />
+        </Switch>
+      </StyledPage>
     </StyledMain>
   );
 }
 
 const StyledMain = styled.div`
-display: flex;
-flex:direction:row;
-flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const StyledDashboard = styled.div`
-  width: 25%;
+  width: 20%;
+`;
+
+const StyledPage = styled.div`
+  width: 80%;
 `;
 
 export default App;
