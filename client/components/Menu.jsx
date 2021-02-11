@@ -7,9 +7,7 @@ function Menu() {
     <nav>
       <Sul>
         <li>
-          <Link to='/metrics' style={{ textDecoration: 'none' }}>
-            Dashboard
-          </Link>
+          <Link to='/' style={{ textDecoration: 'none' }}>Main Dashboard</Link>
         </li>
         <li>
           <Link to='/metrics' style={{ textDecoration: 'none' }}>
