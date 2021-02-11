@@ -1,5 +1,6 @@
 import React from 'react';
 import Broker from './Broker.jsx';
+import styled, { css } from 'styled-components';
 
 function BrokerBox({ brokers }) {
   // const [brokers, setBrokers] = useState([])
@@ -25,11 +26,19 @@ function BrokerBox({ brokers }) {
   //   brokers.push(<Broker />);
   // });
 
+  const BrokerBoxDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  `;
+
   return (
-    <div className='brokerBox'>
-      <h4>BROKERS</h4>
+    <BrokerBoxDiv>
+      {/* <div className='brokerBox'> */}
+      {/* <h4>BROKERS</h4> */}
       {brokersArray}
-    </div>
+      {/* </div> */}
+    </BrokerBoxDiv>
   );
 }
 
