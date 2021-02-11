@@ -120,17 +120,26 @@ function MetricsContainer() {
   // trigger setMetrics after fetch request to populate Metrics Components
 
   const StyledClusterDiv = styled.div`
-    font-size: 1.5em;
+    font-size: 1.8em;
     text-align: center;
     margin: 1em;
     padding: 0.25em 1em;
-    border: 5px solid black;
-    border-radius: 5px;
+    height: 3em;
+    border-radius: 10px;
+    background-color: #00b4d8;
+    box-shadow: 0 8px 6px -6px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
   `;
 
   return (
     <div>
-      <StyledClusterDiv>ClusterID: {clusterId}</StyledClusterDiv>
+      <StyledClusterDiv className='grow'>
+        {' '}
+        Connected to Kafka Cluster: {clusterId}
+      </StyledClusterDiv>
       <BrokerBox clusterId={clusterId} brokers={brokers} />
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />

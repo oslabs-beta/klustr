@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  color: #472d30;
 }
 /* 
 color palette rgb codes:
@@ -14,7 +13,7 @@ color palette rgb codes:
   #472D30
 */
 body {
-  background-color: papayawhip;
+  background-color: whitesmoke;
 }
 
 #testingBox {
@@ -26,18 +25,20 @@ body {
 input[type='text'],
 input {
   padding: 10px;
-}
-
-button {
-  padding: 10px;
-}
-
-textarea {
-  background-color: #bef3fa;
+  border-radius: 25px;
 }
 
 input:hover {
   padding: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 25px;
+}
+
+textarea {
+  background-color: #bef3fa;
 }
 
 .rotate {
@@ -60,7 +61,6 @@ li {
 
 li:hover {
   font-size: 1.2em;
-  box-shadow: 0 2px 6px -6px black;
 }
 
 label {
@@ -69,10 +69,6 @@ label {
 
 #portSubmit {
   padding: 10px;
-}
-
-#welcomeText {
-  text-transform: uppercase;
 }
 
 #welcomeContainer {
@@ -89,4 +85,54 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#welcomeText {
+  text-transform: uppercase;
+  animation: animateWelcomeText 1.5s linear infinite;
+}
+
+@keyframes animateWelcomeText {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.containerBoxes {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1em;
+  padding: 0.25em 1em;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #00b4d8;
+  box-shadow: 0 8px 6px -6px gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
+}
+
+a: {
+  color: #ff006e;
+}
+a:visited {
+  color: #ff006e;
+}
+
+.whiteText {
+  color: white;
 }
