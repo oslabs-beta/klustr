@@ -1,10 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 function Menu() {
   return (
     <nav>
-      <ul>
+      <Sul>
         <li>
           <Link to='/metrics'>Dashboard</Link>
         </li>
@@ -20,9 +21,13 @@ function Menu() {
         <li>
           <Link to='/about'>About Us</Link>
         </li>
-      </ul>
+      </Sul>
     </nav>
   );
 }
+
+const Sul = styled.ul`
+  padding: 10px;
+`;
 
 export default Menu;
