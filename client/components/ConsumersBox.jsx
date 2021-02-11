@@ -1,17 +1,26 @@
-import React from 'react'
-import ConsumerGroup from './ConsumerGroup.jsx'
+import React from 'react';
+import ConsumerGroup from './ConsumerGroup.jsx';
 
-function ConsumersBox() {
+function ConsumersBox({ consumers }) {
   //grab the consumer group state
 
-  const groups = [];
+  const groupNames = consumers.map((obj) => obj.groupId);
 
-  //add <ConsumerGroup
+// [
+//     {"groupId": "test-group", "protocolType": "consumer"},
+//     {"groupId": "tech-jobs",
+//         "protocolType": "consumer"
+//     }
+// ]
+
+  const consumerGroups = groupNames.map((groupId) => {
+    return <ConsumerGroup key={groupId} groupId={groupId} />;
+  })
 
   return (
     <div>
       <h4>CONSUMER GROUPS</h4>
-      {/* {groups} */}
+      {consumerGroups}
     </div>
   );
 }
