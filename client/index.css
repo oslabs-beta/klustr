@@ -2,14 +2,41 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: #472d30;
 }
-
+/* 
+color palette rgb codes:
+  #C9CBA3
+  #FFE1A8 (too banana? using papayawhip instead)
+  #E26D5C
+  #723D46
+  #472D30
+*/
 body {
-  background-color: palevioletred;
+  background-color: papayawhip;
 }
 
 #testingBox {
-  border: 5px solid white;
+  border: 5px solid purple;
   border-radius: 10px;
   border-style: groove double;
+}
+
+input[type='text'],
+textarea {
+  background-color: #bef3fa;
+}
+
+.rotate {
+  animation: rotation 500s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
