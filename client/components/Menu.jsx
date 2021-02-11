@@ -5,13 +5,13 @@ import styled, { css } from 'styled-components';
 function Menu() {
   return (
     <nav>
-      <ul>
-        <Sli>
+      <Sul>
+        <li>
           <Link to='/metrics'>Dashboard</Link>
-        </Sli>
-        <Sli>
+        </li>
+        <li>
           <Link to='/additionalmetrics'>Additional Metrics</Link>
-        </Sli>
+        </li>
         <li>
           <Link to='/clients'>Clients</Link>
         </li>
@@ -21,13 +21,13 @@ function Menu() {
         <li>
           <Link to='/about'>About Us</Link>
         </li>
-      </ul>
+      </Sul>
     </nav>
   );
 }
 
-const Sli = styled.li`
-  margin: 10;
+const Sul = styled.ul`
+  padding: 10px;
 `;
 
 export default Menu;
