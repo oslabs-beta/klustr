@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BrokerBox from '../components/BrokerBox.jsx';
 import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
+import styled, { css } from 'styled-components';
 
 function MetricsContainer() {
   // hooks
@@ -37,7 +38,7 @@ function MetricsContainer() {
       .then((response) => response.json())
       .then((data) => {
         setTopics((topics) => {
-          data = data.filter( (topic) => topic !== '__consumer_offsets')
+          data = data.filter((topic) => topic !== '__consumer_offsets');
           topics = data;
           return topics;
         });
@@ -118,9 +119,19 @@ function MetricsContainer() {
   }, []);
   // trigger setMetrics after fetch request to populate Metrics Components
 
+  const StyledClusterDiv = styled.div`
+    font-size: 1.5em;
+    text-align: center;
+    color: palevioletred;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 5px solid black;
+    border-radius: 5px;
+  `;
+
   return (
     <div>
-      <h1>ClusterID: {clusterId}</h1>
+      <StyledClusterDiv>ClusterID: {clusterId}</StyledClusterDiv>
       <BrokerBox clusterId={clusterId} brokers={brokers} />
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />

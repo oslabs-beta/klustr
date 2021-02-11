@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Menu from '../components/Menu.jsx';
-// import { json } from 'express';
+import styled, { css } from 'styled-components';
+import tempLogo from '../kafka-logo.png';
 
 function DashboardContainer({ setRedirect }) {
   // hook that contains the broker address(es) and update broker address(es)
@@ -38,9 +39,15 @@ function DashboardContainer({ setRedirect }) {
 
   // reroute to '/metrics' to display the Metrics Container with all the metrics information
 
+  const LogoGoesBrrr = styled.span`
+    border: 1px solid black;
+  `;
+
   return (
     <div>
-      <p>logo goes brr</p>
+      <LogoGoesBrrr>
+        <img src={tempLogo} />
+      </LogoGoesBrrr>
       <label htmlFor='portInput'>Please Type in Your Port Address:</label>
       <input
         type='text'

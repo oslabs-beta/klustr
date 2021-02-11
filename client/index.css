@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -9,7 +10,12 @@ body {
 }
 
 #testingBox {
-  border: 5px solid white;
+  border: 5px solid purple;
   border-radius: 10px;
   border-style: groove double;
+}
+
+input[type='text'],
+textarea {
+  background-color: #bef3fa;
 }

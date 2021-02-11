@@ -1,16 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 function Menu() {
   return (
     <nav>
       <ul>
-        <li>
+        <Sli>
           <Link to='/metrics'>Dashboard</Link>
-        </li>
-        <li>
+        </Sli>
+        <Sli>
           <Link to='/additionalmetrics'>Additional Metrics</Link>
-        </li>
+        </Sli>
         <li>
           <Link to='/clients'>Clients</Link>
         </li>
@@ -24,5 +25,9 @@ function Menu() {
     </nav>
   );
 }
+
+const Sli = styled.li`
+  margin: 10;
+`;
 
 export default Menu;
