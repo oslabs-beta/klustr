@@ -5,7 +5,7 @@ const ErrorPage = () => {
   return (
     <div>
       <h3>There seems to be an error...</h3>
-      <Link to='/'>Take me back to the Home Page</Link>
+      <Link to='/'>Take me back to the Main Dashboard</Link>
     </div>
   )
 }

@@ -85,6 +85,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
+  margin-top: 50px;
 }
 
 #welcomeText {
@@ -126,9 +128,10 @@ label {
   transform: scale(1.1);
 }
 
-a: {
+/* a: {
   color: #ff006e;
-}
+} */
+
 a:visited {
   color: #ff006e;
 }

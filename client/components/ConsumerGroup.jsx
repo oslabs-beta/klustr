@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Consumer from './Consumer.jsx';
+import styled, { css } from 'styled-components';
 
 function ConsumersGroup({ groupId }) {
 
@@ -34,12 +35,26 @@ function ConsumersGroup({ groupId }) {
 
 
   return (
-    <div>
-      <h4>CONSUMER GROUP: {groupId}</h4>
-      <h5>Number of Consumers: {consumers.length}</h5>
+    <StyledConsumerGroupDiv>
+      <h4>GROUP ID: {groupId}</h4>
+      <span>Number of Consumers: {consumers.length}</span>
       {consumerComponents}
-    </div>
+    </StyledConsumerGroupDiv>
   );
 }
+
+const StyledConsumerGroupDiv = styled.div`
+font-size: 1em;
+text-align: left;
+margin: 1em;
+padding: 0.25em 1em;
+padding-top: 1em;
+box-shadow: 0 8px 6px -6px gray;
+border-radius: 5px;
+background: grey;
+display: flex;
+flex-direction:column;
+
+`;
 
 export default ConsumersGroup;

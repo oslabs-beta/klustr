@@ -59,13 +59,14 @@ function DashboardContainer({ setRedirect }) {
       </EyeGlass>
       <div id='portSubmit'>
         <div>
-          <label htmlFor='portInput' placeholder='Port Address'></label>
+          <label htmlFor='portInput'></label>
         </div>
 
         <input
           type='text'
           id='portInput'
           name='portInput'
+          placeholder='Port Address'
           value={portInput}
           onChange={(e) => setPortInput(e.target.value)}
         />

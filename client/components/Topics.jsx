@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Partition from './Partition.jsx'
+import styled, { css } from 'styled-components';
 
 function Topic({ topicname }) {
   
@@ -32,11 +33,25 @@ function Topic({ topicname }) {
 
 
   return (
-    <div>
-      <h1>Topic: {topicname}</h1>
+    <StyledTopicDiv>
+      <h4>{topicname}</h4>
+      <br></br>
       <Partition offsets={offsets} />
-    </div>
+    </StyledTopicDiv>
   );
 }
+
+const StyledTopicDiv = styled.div`
+font-size: 1em;
+text-align: center;
+margin: 1em;
+padding: 0.25em 1em;
+padding-top: 1em;
+padding-bottom: 1em;
+border-radius: 5px;
+background: white;
+max-width: 25%;
+`;
+
 
 export default Topic;

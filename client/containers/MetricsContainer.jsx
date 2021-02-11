@@ -144,7 +144,7 @@ function MetricsContainer() {
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
 
-      <div id='testingBox'>
+      {/* <div id='testingBox'>
         <span>{topics}</span>
         <br />
         <span>{clusterId}</span>
@@ -159,7 +159,7 @@ function MetricsContainer() {
             return <pre>{JSON.stringify(item)}</pre>;
           })}
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }
