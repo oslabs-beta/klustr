@@ -7,7 +7,7 @@ function Menu() {
     <nav>
       <Sul>
         <li>
-          <Link to='/metrics'>Dashboard</Link>
+          <Link to='/'>Main Dashboard</Link>
         </li>
         <li>
           <Link to='/additionalmetrics'>Additional Metrics</Link>
