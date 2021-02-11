@@ -81,7 +81,7 @@ function MetricsContainer() {
       .then((data) => {
         console.log(data);
         setConsumers(data);
-      })
+      }) // array of objects (consumers) [{'groupId': 'test-group' }]
       .catch((err) => console.log(err));
   };
 

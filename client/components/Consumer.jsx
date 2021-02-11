@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Consumer() {
+function Consumer({ memberId }) {
   // need to grab Consumer ID from BrokerBox or MetricsContainer
 
   return (
     <div>
-      <span>Consumer ID: </span>
+      <span>Consumer ID: {memberId}</span>
     </div>
   );
 }
