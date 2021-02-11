@@ -8,13 +8,20 @@ import ErrorPage from './components/ErrorPage.jsx';
 function App() {
   const [redirect, setRedirect] = useState(false);
 
+  let display;
+
+  if (!redirect) {
+    display = <Route exact path='/' component={Welcome} />;
+  } else {
+    display = <Route exact path='/' component={MetricsContainer} />;
+  }
+
   return (
     <main>
       <DashboardContainer setRedirect={setRedirect} />
       <Switch>
-        if (!redirect) {<Route exact path='/' component={Welcome} />}
-        else {<Route exact path='/' component={MetricsContainer} />}
-        <Route path='/metrics' component={MetricsContainer} />
+        {display}
+        {/* <Route path='/metrics' component={MetricsContainer} /> */}
         {/* <Route path='/about' component={About} /> */}
         <Route component={ErrorPage} />
       </Switch>

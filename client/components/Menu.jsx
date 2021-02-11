@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Menu() {
   return (
     <nav>
       <ul>
         <li>
-          <Link to='/metrics'>Dashboard</Link>
+          <Link to='/'>Main Dashboard</Link>
         </li>
         <li>
           <Link to='/additionalmetrics'>Additional Metrics</Link>
