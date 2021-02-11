@@ -122,7 +122,6 @@ function MetricsContainer() {
   const StyledClusterDiv = styled.div`
     font-size: 1.5em;
     text-align: center;
-    color: palevioletred;
     margin: 1em;
     padding: 0.25em 1em;
     border: 5px solid black;

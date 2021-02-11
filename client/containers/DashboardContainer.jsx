@@ -39,31 +39,41 @@ function DashboardContainer({ setRedirect }) {
 
   // reroute to '/metrics' to display the Metrics Container with all the metrics information
 
-  const LogoGoesBrrr = styled.div`
+  const EyeGlass = styled.div`
     display: inline-block;
     padding: 2rem 1rem;
-    font-size: 1.2rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
   `;
 
   return (
     <div>
-      <LogoGoesBrrr>
-        <img className='rotate' src={tempLogo} alt='Kafka Specks Logo' />
-      </LogoGoesBrrr>
-      <div>
-        <label htmlFor='portInput'>Please Enter Broker Address:</label>
+      <EyeGlass>
+        {/* <img src={tempLogo} alt='Kafka Specks Logo' /> */}
+        <a href='' id='eyeglasses'>
+          👓
+        </a>
+      </EyeGlass>
+      <div id='portSubmit'>
+        <div>
+          <label htmlFor='portInput' placeholder='Port Address'></label>
+        </div>
+
+        <input
+          type='text'
+          id='portInput'
+          name='portInput'
+          value={portInput}
+          onChange={(e) => setPortInput(e.target.value)}
+        />
+        <button type='submit' onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
 
-      <input
-        type='text'
-        id='portInput'
-        name='portInput'
-        value={portInput}
-        onChange={(e) => setPortInput(e.target.value)}
-      />
-      <button type='submit' onClick={handleSubmit}>
-        Submit
-      </button>
       <Menu />
     </div>
   );
