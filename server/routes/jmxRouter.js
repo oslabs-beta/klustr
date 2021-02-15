@@ -3,22 +3,6 @@ const router = express.Router();
 
 const jmxController = require('../controllers/jmxController');
 
-// const connectController = require('../controllers/connectController');
-
-// router.get(
-//   '/activeControllers/:port',
-//   jmxController.getMetrics,
-//   jmxController.getActiveControllers,
-//   (req, res) => res.status(200).json(res.locals.activeControllers)
-// );
-
-// router.get(
-//   '/replicatedPartitions/:port',
-//   jmxController.getMetrics,
-//   jmxController.getReplicatedPartitions,
-//   (req, res) => res.status(200).json(res.locals.replicatedPartitions)
-// );
-
 router.get(
   '/metrics/:port',
   jmxController.getMetrics,
@@ -45,11 +29,20 @@ router.get(
     })
 );
 
+//Takes an object with key "metrics" and value is an array of metrics we want to obtain
+//Bytes In Per Sec => brokertopicmetrics_bytesin_total
+//Bytes Out Per Sec => brokertopicmetrics_bytesout_total
+//CPU usage => cpu_seconds_total
+//Disk usage write => disk_write_bytes
+//Disk usage read => disk_read_bytes
 router.post(
   '/advancedMetrics/:port',
   jmxController.getMetrics,
   jmxController.getAdvancedMetrics,
-  (req, res) => res.status(200).json(res.locals)
+  (req, res) => {
+    console.timeEnd(); //checking to see time of request, should probably test in front end
+    res.status(200).json(res.locals);
+  }
 );
 
 module.exports = router;
