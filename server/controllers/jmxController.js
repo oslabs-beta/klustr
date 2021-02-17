@@ -18,6 +18,7 @@ jmxController.getMetrics = (req, res, next) => {
 };
 
 jmxController.getActiveControllers = (req, res, next) => {
+  // activecontrollercount 123423452.0
   const matches = res.locals.response.match(/activecontrollercount \d+.\d+/g);
   const convertedToNum = Number(matches[0].match(/\d.*/g)[0]);
   res.locals.activeControllers = convertedToNum;
@@ -39,7 +40,6 @@ jmxController.getOfflinePartitions = (req, res, next) => {
 };
 
 jmxController.getAdvancedMetrics = (req, res, next) => {
-
   req.body.metrics.forEach((metric) => {
     const metricStr = metric + ' \\d+.\\d+';
     const matchStr = new RegExp(metricStr, 'g');
