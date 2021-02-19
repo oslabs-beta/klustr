@@ -1,9 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import CoreMetrics from './CoreMetrics.jsx';
 
 const CoreMetricsBox = () => {
-
-    const [coreMetrics, setCoreMetrics] = useState({})
+  const [coreMetrics, setCoreMetrics] = useState({
+    activeControllers: 1,
+    replicatedPartitions: 0,
+    offlinePartitions: 0
+  });
 
   const fetchCoreMetrics = () => {
     //fetch(`/jmx/metrics/${port}`, {
@@ -19,9 +22,10 @@ const CoreMetricsBox = () => {
       .then((data) => {
         console.log(data);
         setCoreMetrics(data);
-      }) 
-      .then() => setTimeout(fetchCoreMetrics,5000);
-      .catch((err) => console.log(err));
+      })
+      .then(() => {
+        setTimeout(fetchCoreMetrics, 5000);
+      });
   };
 
   useEffect(() => {
@@ -33,8 +37,8 @@ const CoreMetricsBox = () => {
       <CoreMetrics metric={coreMetrics.activeControllers} />
       <CoreMetrics metric={coreMetrics.replicatedPartitions} />
       <CoreMetrics metric={coreMetrics.offlinePartitions} />
-    </div>;
-  )
+    </div>
+  );
 };
 
 export default CoreMetricsBox;
