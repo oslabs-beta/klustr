@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ClusterNode from './ClusterNode.jsx';
+import { ClusterNode } from './ClusterNode.jsx';
 
 function ClusterNodeContainer() {
   const [clusterId, setClusterId] = useState('');
@@ -32,6 +32,7 @@ function ClusterNodeContainer() {
 
   return (
     <div>
+      <h1>Visual Overview of the Cluster</h1>
       <ClusterNode clusterId={clusterId} brokers={brokers} />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import ReactFlow, { Background, Controls, MiniMap } from 'react-flow-renderer';
 
@@ -45,7 +45,7 @@ export const ClusterNode = ({ clusterId, brokers }) => {
 
   brokers.forEach((broker, idx) => {
     const brokerObj = {
-      ...clusterObj,
+      // ...clusterObj,
       id: String(idx + 1),
       type: 'input',
       data: {
@@ -69,7 +69,7 @@ export const ClusterNode = ({ clusterId, brokers }) => {
     };
 
     // console.log(edge);
-    initialElements.push(brokerObj);
+    initialElements.push(brokerObj, edge);
   });
 
   // initialElements.push(
@@ -105,7 +105,7 @@ export const ClusterNode = ({ clusterId, brokers }) => {
     <div>
       <ReactFlow
         elements={initialElements}
-        style={{ width: '100%', height: '30vh' }}
+        style={{ width: '100%', height: '90vh' }}
       >
         <MiniMap
           nodeColor={(n) => {
