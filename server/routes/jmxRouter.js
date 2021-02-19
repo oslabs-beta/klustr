@@ -12,7 +12,7 @@ router.get(
   (req, res) =>
     res.status(200).json({
       activeControllers: res.locals.activeControllers,
-      replicatedParitions: res.locals.replicatedPartitions,
+      replicatedPartitions: res.locals.replicatedPartitions,
       offlinePartitions: res.locals.offlinePartitions,
     })
 );
