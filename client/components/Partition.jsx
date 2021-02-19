@@ -15,6 +15,7 @@ function Partition({ offsets }) {
     partitionBox.push(
       <div>
         <span>Partition: {partition}</span>
+        <br></br>
         <span>Latest Offset: {offset}</span>
       </div>
     );
@@ -23,7 +24,7 @@ function Partition({ offsets }) {
   return (
     <div>
       {partitionBox}
-    </div>
+    </div>  
   );
 }
 

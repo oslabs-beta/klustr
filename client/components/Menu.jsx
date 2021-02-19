@@ -7,19 +7,27 @@ function Menu() {
     <nav>
       <Sul>
         <li>
-          <Link to='/metrics'>Dashboard</Link>
+          <Link to='/' style={{ textDecoration: 'none' }}>Main Dashboard</Link>
         </li>
         <li>
-          <Link to='/additionalmetrics'>Additional Metrics</Link>
+          <Link to='/metrics' style={{ textDecoration: 'none' }}>
+            Additional Metrics
+          </Link>
         </li>
         <li>
-          <Link to='/clients'>Clients</Link>
+          <Link to='/metrics' style={{ textDecoration: 'none' }}>
+            Clients
+          </Link>
         </li>
         <li>
-          <Link to='/settings'>Main Settings</Link>
+          <Link to='/settings' style={{ textDecoration: 'none' }}>
+            Main Settings
+          </Link>
         </li>
         <li>
-          <Link to='/about'>About Us</Link>
+          <Link to='/about' style={{ textDecoration: 'none' }}>
+            About Us
+          </Link>
         </li>
       </Sul>
     </nav>

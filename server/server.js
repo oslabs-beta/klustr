@@ -9,6 +9,7 @@ const PORT = 3000;
 // console.log('in server.js - before adminRouter');
 const adminRouter = require('./routes/adminRouter');
 // console.log('in server.js - after adminRouter');
+const jmxRouter = require('./routes/jmxRouter');
 
 // parsing JSON bodies
 app.use(express.json());
@@ -33,6 +34,8 @@ app.get('/', (req, res) => {
 
 // define route handler
 app.use('/admin', adminRouter);
+
+app.use('/jmx', jmxRouter);
 
 app.use((err, req, res, next) => {
   const defaultErr = {

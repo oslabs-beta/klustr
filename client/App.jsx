@@ -9,30 +9,43 @@ import styled, { css } from 'styled-components';
 function App() {
   const [redirect, setRedirect] = useState(false);
 
+  let display;
+
+  if (!redirect) {
+    display = <Route exact path='/' component={Welcome} />;
+  } else {
+    display = <Route exact path='/' component={MetricsContainer} />;
+  }
+
   return (
     <StyledMain>
       <StyledDashboard>
         <DashboardContainer setRedirect={setRedirect} />
       </StyledDashboard>
-      <Switch>
-        if (!redirect) {<Route exact path='/' component={Welcome} />}
-        else {<Route exact path='/' component={MetricsContainer} />}
-        <Route path='/metrics' component={MetricsContainer} />
-        {/* <Route path='/about' component={About} /> */}
-        <Route component={ErrorPage} />
-      </Switch>
+      <StyledPage>
+        <Switch>
+          {display}
+          {/* <Route path='/metrics' component={MetricsContainer} /> */}
+          {/* <Route path='/about' component={About} /> */}
+          <Route component={ErrorPage} />
+        </Switch>
+      </StyledPage>
     </StyledMain>
   );
 }
 
 const StyledMain = styled.div`
-display: flex;
-flex:direction:row;
-flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const StyledDashboard = styled.div`
-  width: 25%;
+  width: 20%;
+`;
+
+const StyledPage = styled.div`
+  width: 80%;
 `;
 
 export default App;

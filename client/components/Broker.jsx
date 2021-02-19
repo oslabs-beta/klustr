@@ -4,19 +4,24 @@ import styled, { css } from 'styled-components';
 const StyledBrokerDiv = styled.div`
   font-size: 1.5em;
   text-align: center;
-  color: palevioletred;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 5px solid black;
-  border-radius: 5px;
+  height: 4em;
+  border-radius: 10px;
+  background-color: #00b4d8;
+  box-shadow: 0 8px 6px -6px gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
 `;
 
 function Broker({ port, host, nodeId }) {
   // need to grab Broker ID, Broker Host and Broker Port from BrokerBox or MetricsContainer
 
   return (
-    <StyledBrokerDiv>
-      <div className='hvr-pulse-grow'>
+    <StyledBrokerDiv className='grow'>
+      <div>
         <div>Broker ID: {nodeId}</div>
         <div>Host Name: {host}</div>
         <div>Port: {port}</div>
