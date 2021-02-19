@@ -7,7 +7,9 @@ function Menu() {
     <nav>
       <Sul>
         <li>
-          <Link to='/' style={{ textDecoration: 'none' }}>Main Dashboard</Link>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            Main Dashboard
+          </Link>
         </li>
         <li>
           <Link to='/cluster' style={{ textDecoration: 'none' }}>
@@ -17,6 +19,11 @@ function Menu() {
         <li>
           <Link to='/metrics' style={{ textDecoration: 'none' }}>
             Metrics
+          </Link>
+        </li>
+        <li>
+          <Link to='/brokerView' style={{ textDecoration: 'none' }}>
+            Broker View
           </Link>
         </li>
         <li>

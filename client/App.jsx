@@ -7,6 +7,8 @@ import Welcome from './components/Welcome.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import styled, { css } from 'styled-components';
 
+import ClusterNodeContainer from './components/ClusterNodeContainer.jsx';
+
 function App() {
   const [redirect, setRedirect] = useState(false);
 
@@ -28,6 +30,7 @@ function App() {
           {display}
           <Route path='/cluster' component={ClusterContainer} />
           <Route path='/metrics' component={MetricsContainer} />
+          <Route path='/brokerView' component={ClusterNodeContainer} />
           {/* <Route path='/about' component={About} /> */}
           <Route component={ErrorPage} />
         </Switch>
