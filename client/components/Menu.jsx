@@ -7,16 +7,23 @@ function Menu() {
     <nav>
       <Sul>
         <li>
-          <Link to='/' style={{ textDecoration: 'none' }}>Main Dashboard</Link>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            Main Dashboard
+          </Link>
         </li>
         <li>
-          <Link to='/metrics' style={{ textDecoration: 'none' }}>
-            Additional Metrics
+          <Link to='/cluster' style={{ textDecoration: 'none' }}>
+            Cluster Overview
           </Link>
         </li>
         <li>
           <Link to='/metrics' style={{ textDecoration: 'none' }}>
-            Clients
+            Metrics
+          </Link>
+        </li>
+        <li>
+          <Link to='/brokerView' style={{ textDecoration: 'none' }}>
+            Broker View
           </Link>
         </li>
         <li>
