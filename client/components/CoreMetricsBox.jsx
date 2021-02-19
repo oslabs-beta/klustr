@@ -3,9 +3,9 @@ import CoreMetrics from './CoreMetrics.jsx';
 
 const CoreMetricsBox = () => {
   const [coreMetrics, setCoreMetrics] = useState({
-    activeControllers: 1,
-    replicatedPartitions: 0,
-    offlinePartitions: 0
+    // activeControllers: 1,
+    // replicatedPartitions: 0,
+    // offlinePartitions: 0
   });
 
   const fetchCoreMetrics = () => {
@@ -34,8 +34,11 @@ const CoreMetricsBox = () => {
 
   return (
     <div>
+      <h4>Active Controllers:</h4>
       <CoreMetrics metric={coreMetrics.activeControllers} />
+      <h4>Replicated Partitions:</h4>
       <CoreMetrics metric={coreMetrics.replicatedPartitions} />
+      <h4>Offline Partitions:</h4>
       <CoreMetrics metric={coreMetrics.offlinePartitions} />
     </div>
   );
