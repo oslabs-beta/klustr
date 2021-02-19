@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import CoreMetricsBox from '../components/CoreMetricsBox';
-import AuxiliaryMetricsBox from '../components/AuxiliaryMetricsBox';
+import CoreMetricsBox from '../components/CoreMetricsBox.jsx';
+import AuxiliaryMetricsBox from '../components/AuxiliaryMetricsBox.jsx';
 
 // import CoreMetricsBox and AuxiliaryMetricsBox
 

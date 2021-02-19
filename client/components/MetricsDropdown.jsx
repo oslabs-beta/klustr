@@ -1,11 +1,7 @@
 import React from 'react';
 
 const MetricsDropdown = () => {
-  return (
-    <div>
-          
-    </div>;
-  )
+  return <div>Dropdown here</div>;
 };
 
 export default MetricsDropdown;
