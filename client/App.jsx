@@ -15,7 +15,7 @@ function App() {
   let display;
 
   if (!redirect) {
-    display = <Route exact path='/' component={Welcome} />;
+    display = <Route exact path='/'> <Welcome setRedirect={setRedirect}/> </Route>
   } else {
     display = <Route exact path='/' component={ClusterContainer} />;
   }
