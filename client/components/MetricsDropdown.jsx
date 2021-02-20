@@ -8,35 +8,55 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-function MetricsDropdown() {
+let dataInsideCheckbox;
+
+function MetricsDropdown({ handleSubmit }) {
   return (
-    <Autocomplete
-      multiple
-      id='checkboxes-tags-demo'
-      options={selectedMetrics}
-      disableCloseOnSelect
-      getOptionLabel={(option) => option.title}
-      renderOption={(option, { selected }) => (
-        <React.Fragment>
-          <Checkbox
-            icon={icon}
-            checkedIcon={checkedIcon}
-            style={{ marginRight: 8 }}
-            checked={selected}
+    <div>
+      <Autocomplete
+        multiple
+        id='checkboxes-tags-demo'
+        options={selectedMetrics}
+        onChange={(newInput) => {
+          onChange(newInput);
+        }}
+        disableCloseOnSelect
+        getOptionLabel={(option) => option.title}
+        renderOption={(option, { selected }) => (
+          <React.Fragment>
+            <Checkbox
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8 }}
+              checked={selected}
+            />
+            {option.title}
+          </React.Fragment>
+        )}
+        style={{ width: 500 }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            variant='outlined'
+            label='Checkboxes'
+            placeholder='Favorites'
+            value='selectedMetrics'
+            onChange={() => {
+              console.log(params);
+            }}
           />
-          {option.title}
-        </React.Fragment>
-      )}
-      style={{ width: 500 }}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          variant='outlined'
-          label='Checkboxes'
-          placeholder='Favorites'
-        />
-      )}
-    />
+        )}
+      />
+
+      <button
+        type='btn'
+        onClick={() => {
+          handleSubmit(['test', 'test2']);
+        }}
+      >
+        Submit Input
+      </button>
+    </div>
   );
 }
 

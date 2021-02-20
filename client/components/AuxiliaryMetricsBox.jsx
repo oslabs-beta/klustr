@@ -7,8 +7,29 @@ const AuxiliaryMetricsBox = () => {
     //disk_write_bytes: 198273
   });
   const stateCopy = JSON.parse(JSON.stringify(auxiliaryMetrics));
+  const [postMetrics, setPostMetrics] = useState([]);
 
-  const fetchAuxiliaryMetrics = () => {
+  // handles user's metrics selections
+  const captureInput = (e) => {
+    let newInput; // expecting an array
+    if (e.target) newInput = e.target.value;
+    else newInput = e;
+
+    console.log('new input', newInput);
+    return setPostMetrics(newInput);
+  };
+
+  // handles submission
+  const handleSubmit = (arr) => {
+    // use captured Input and pass it into the fetch body
+    // if (postMetrics.length === 0) console.log('here');
+    // else fetchAuxiliaryMetrics(postMetrics);
+    setPostMetrics(['hello', 'hello']);
+    console.log('postmetrics', postMetrics);
+    console.log('in handleSubmit');
+  };
+
+  const fetchAuxiliaryMetrics = (metricsArr) => {
     //fetch(`/jmx/metrics/${ip address}`, {
     fetch(`/jmx/advancedMetrics/23.20.153.187:7075`, {
       method: 'POST',
@@ -46,7 +67,15 @@ const AuxiliaryMetricsBox = () => {
 
   return (
     <div>
-      <MetricsDropdown />
+      <MetricsDropdown onChange={captureInput} handleSubmit={handleSubmit} />
+      {/* <button
+        type='btn'
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        Submit Input
+      </button> */}
       <AuxiliaryMetrics metrics={auxiliaryMetrics} />
     </div>
   );
