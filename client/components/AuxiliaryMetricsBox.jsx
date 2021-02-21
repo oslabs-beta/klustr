@@ -10,21 +10,21 @@ const AuxiliaryMetricsBox = () => {
   const [postMetrics, setPostMetrics] = useState([]);
 
   // handles user's metrics selections
-  const captureInput = (e) => {
-    let newInput; // expecting an array
-    if (e.target) newInput = e.target.value;
-    else newInput = e;
+  // const captureInput = (e) => {
+  //   let newInput; // expecting an array
+  //   if (e.target) newInput = e.target.value;
+  //   else newInput = e;
 
-    console.log('new input', newInput);
-    return setPostMetrics(newInput);
-  };
+  //   console.log('new input', newInput);
+  //   return setPostMetrics(newInput);
+  // };
 
   // handles submission
   const handleSubmit = (arr) => {
     // use captured Input and pass it into the fetch body
     // if (postMetrics.length === 0) console.log('here');
     // else fetchAuxiliaryMetrics(postMetrics);
-    setPostMetrics(['hello', 'hello']);
+    setPostMetrics(arr);
     console.log('postmetrics', postMetrics);
     console.log('in handleSubmit');
   };
@@ -67,7 +67,10 @@ const AuxiliaryMetricsBox = () => {
 
   return (
     <div>
-      <MetricsDropdown onChange={captureInput} handleSubmit={handleSubmit} />
+      <MetricsDropdown
+        handleSubmit={handleSubmit}
+        setPostMetrics={setPostMetrics}
+      />
       {/* <button
         type='btn'
         onClick={() => {

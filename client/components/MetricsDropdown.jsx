@@ -10,18 +10,26 @@ const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 let dataInsideCheckbox;
 
-function MetricsDropdown({ handleSubmit }) {
+function MetricsDropdown({ handleSubmit, captureInput, setPostMetrics }) {
   return (
     <div>
       <Autocomplete
         multiple
         id='checkboxes-tags-demo'
         options={selectedMetrics}
-        onChange={(newInput) => {
-          onChange(newInput);
+        // onChange={(newInput) => {
+        //   onChange(newInput);
+        // }}
+        // onChange={(event) => {
+        //   console.log('event target', event.target);
+        //   console.log('autocomplete changed');
+        // }}
+        onChange={(event, newValue) => {
+          console.log('new value', newValue);
+          setPostMetrics(newValue);
         }}
         disableCloseOnSelect
-        getOptionLabel={(option) => option.title}
+        getOptionLabel={(option) => option}
         renderOption={(option, { selected }) => (
           <React.Fragment>
             <Checkbox
@@ -30,7 +38,7 @@ function MetricsDropdown({ handleSubmit }) {
               style={{ marginRight: 8 }}
               checked={selected}
             />
-            {option.title}
+            {option}
           </React.Fragment>
         )}
         style={{ width: 500 }}
@@ -41,9 +49,10 @@ function MetricsDropdown({ handleSubmit }) {
             label='Checkboxes'
             placeholder='Favorites'
             value='selectedMetrics'
-            onChange={() => {
-              console.log(params);
-            }}
+            // onChange={(event) => {
+            //   console.log('Textfield changed');
+            //   console.log(event.target.value);
+            // }}
           />
         )}
       />
@@ -60,12 +69,20 @@ function MetricsDropdown({ handleSubmit }) {
   );
 }
 
+// const selectedMetrics = [
+//   { title: 'brokertopicmetrics_bytesin_total' },
+//   { title: 'brokertopicmetrics_bytesout_total' },
+//   { title: 'cpu_seconds_total' },
+//   { title: 'disk_write_bytes' },
+//   { title: 'disk_read_bytes' },
+// ];
+
 const selectedMetrics = [
-  { title: 'brokertopicmetrics_bytesin_total' },
-  { title: 'brokertopicmetrics_bytesout_total' },
-  { title: 'cpu_seconds_total' },
-  { title: 'disk_write_bytes' },
-  { title: 'disk_read_bytes' },
+  'brokertopicmetrics_bytesin_total',
+  'brokertopicmetrics_bytesout_total',
+  'cpu_seconds_total',
+  'disk_write_bytes',
+  'disk_read_bytes',
 ];
 
 // const MetricsDropdown2 = () => {
