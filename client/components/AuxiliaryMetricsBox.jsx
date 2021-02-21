@@ -3,10 +3,9 @@ import AuxiliaryMetrics from './AuxiliaryMetrics.jsx';
 import MetricsDropdown from './MetricsDropdown.jsx';
 
 const AuxiliaryMetricsBox = () => {
-  const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({
-    //disk_write_bytes: 198273
-  });
+  const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
   const stateCopy = JSON.parse(JSON.stringify(auxiliaryMetrics));
+  const [postMetrics, setPostMetrics] = useState([]);
 
   const fetchAuxiliaryMetrics = () => {
     //fetch(`/jmx/metrics/${ip address}`, {
@@ -16,7 +15,7 @@ const AuxiliaryMetricsBox = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        metrics: ['disk_write_bytes', 'disk_read_bytes'],
+        metrics: postMetrics,
       }),
     })
       .then((response) => {
@@ -40,13 +39,20 @@ const AuxiliaryMetricsBox = () => {
       });
   };
 
-  useEffect(() => {
-    fetchAuxiliaryMetrics();
-  }, []);
+  // function onClick
+  // render graph component
 
   return (
     <div>
-      <MetricsDropdown />
+      <MetricsDropdown setPostMetrics={setPostMetrics} />
+      <button
+        type='btn'
+        onClick={() => {
+          fetchAuxiliaryMetrics();
+        }}
+      >
+        Submit Input
+      </button>
       <AuxiliaryMetrics metrics={auxiliaryMetrics} />
     </div>
   );
