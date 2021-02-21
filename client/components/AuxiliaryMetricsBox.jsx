@@ -4,7 +4,7 @@ import MetricsDropdown from './MetricsDropdown.jsx';
 
 const AuxiliaryMetricsBox = () => {
   const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
-  
+
   const [postMetrics, setPostMetrics] = useState([]);
   console.log('in Auxiliary metrics box');
   const fetchAuxiliaryMetrics = () => {
@@ -26,35 +26,18 @@ const AuxiliaryMetricsBox = () => {
       })
       .then((data) => {
         console.log('post response', data);
-        // const metrics = Object.keys(data);
 
-        // metrics.forEach((metric) => {
-        //   if (stateCopy.hasOwnProperty(metric)) {
-        //     stateCopy[metric].push(data[metric]);
-        //     stateCopy[metric].shift();
-        //   } else {
-        //     stateCopy[metric] = [
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //       data[metric],
-        //     ];
-        //   }
-        // });
         setAuxiliaryMetrics((prevState) => {
           const metrics = Object.keys(data);
           const stateCopy = JSON.parse(JSON.stringify(prevState));
           metrics.forEach((metric) => {
             if (stateCopy.hasOwnProperty(metric)) {
               stateCopy[metric].push(data[metric]);
-              stateCopy[metric].shift();
+              if (stateCopy[metric].length > 11) stateCopy[metric].shift();
             } else {
               stateCopy[metric] = [
+                data[metric],
+                data[metric],
                 data[metric],
                 data[metric],
                 data[metric],
