@@ -3,33 +3,11 @@ import AuxiliaryMetrics from './AuxiliaryMetrics.jsx';
 import MetricsDropdown from './MetricsDropdown.jsx';
 
 const AuxiliaryMetricsBox = () => {
-  const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({
-    //disk_write_bytes: 198273
-  });
+  const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
   const stateCopy = JSON.parse(JSON.stringify(auxiliaryMetrics));
   const [postMetrics, setPostMetrics] = useState([]);
 
-  // handles user's metrics selections
-  // const captureInput = (e) => {
-  //   let newInput; // expecting an array
-  //   if (e.target) newInput = e.target.value;
-  //   else newInput = e;
-
-  //   console.log('new input', newInput);
-  //   return setPostMetrics(newInput);
-  // };
-
-  // handles submission
-  const handleSubmit = (arr) => {
-    // use captured Input and pass it into the fetch body
-    // if (postMetrics.length === 0) console.log('here');
-    // else fetchAuxiliaryMetrics(postMetrics);
-    setPostMetrics(arr);
-    console.log('postmetrics', postMetrics);
-    console.log('in handleSubmit');
-  };
-
-  const fetchAuxiliaryMetrics = (metricsArr) => {
+  const fetchAuxiliaryMetrics = () => {
     //fetch(`/jmx/metrics/${ip address}`, {
     fetch(`/jmx/advancedMetrics/23.20.153.187:7075`, {
       method: 'POST',
@@ -37,7 +15,7 @@ const AuxiliaryMetricsBox = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        metrics: ['disk_write_bytes', 'disk_read_bytes'],
+        metrics: postMetrics,
       }),
     })
       .then((response) => {
@@ -61,24 +39,20 @@ const AuxiliaryMetricsBox = () => {
       });
   };
 
-  useEffect(() => {
-    fetchAuxiliaryMetrics();
-  }, []);
+  // function onClick
+  // render graph component
 
   return (
     <div>
-      <MetricsDropdown
-        handleSubmit={handleSubmit}
-        setPostMetrics={setPostMetrics}
-      />
-      {/* <button
+      <MetricsDropdown setPostMetrics={setPostMetrics} />
+      <button
         type='btn'
         onClick={() => {
-          handleSubmit();
+          fetchAuxiliaryMetrics();
         }}
       >
         Submit Input
-      </button> */}
+      </button>
       <AuxiliaryMetrics metrics={auxiliaryMetrics} />
     </div>
   );

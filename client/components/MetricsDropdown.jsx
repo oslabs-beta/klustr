@@ -10,22 +10,14 @@ const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 let dataInsideCheckbox;
 
-function MetricsDropdown({ handleSubmit, captureInput, setPostMetrics }) {
+function MetricsDropdown({ setPostMetrics }) {
   return (
     <div>
       <Autocomplete
         multiple
         id='checkboxes-tags-demo'
         options={selectedMetrics}
-        // onChange={(newInput) => {
-        //   onChange(newInput);
-        // }}
-        // onChange={(event) => {
-        //   console.log('event target', event.target);
-        //   console.log('autocomplete changed');
-        // }}
         onChange={(event, newValue) => {
-          console.log('new value', newValue);
           setPostMetrics(newValue);
         }}
         disableCloseOnSelect
@@ -49,33 +41,12 @@ function MetricsDropdown({ handleSubmit, captureInput, setPostMetrics }) {
             label='Checkboxes'
             placeholder='Favorites'
             value='selectedMetrics'
-            // onChange={(event) => {
-            //   console.log('Textfield changed');
-            //   console.log(event.target.value);
-            // }}
           />
         )}
       />
-
-      <button
-        type='btn'
-        onClick={() => {
-          handleSubmit(['test', 'test2']);
-        }}
-      >
-        Submit Input
-      </button>
     </div>
   );
 }
-
-// const selectedMetrics = [
-//   { title: 'brokertopicmetrics_bytesin_total' },
-//   { title: 'brokertopicmetrics_bytesout_total' },
-//   { title: 'cpu_seconds_total' },
-//   { title: 'disk_write_bytes' },
-//   { title: 'disk_read_bytes' },
-// ];
 
 const selectedMetrics = [
   'brokertopicmetrics_bytesin_total',
@@ -84,9 +55,5 @@ const selectedMetrics = [
   'disk_write_bytes',
   'disk_read_bytes',
 ];
-
-// const MetricsDropdown2 = () => {
-//   return <div>Dropdown here</div>;
-// };
 
 export default MetricsDropdown;
