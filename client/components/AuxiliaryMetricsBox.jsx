@@ -29,14 +29,25 @@ const AuxiliaryMetricsBox = () => {
         metrics.forEach((metric) => {
           if (stateCopy.hasOwnProperty(metric)) {
             stateCopy[metric].push(data[metric]);
+            stateCopy[metric].shift();
           } else {
-            stateCopy[metric] = [data[metric]];
+            stateCopy[metric] = [
+              data[metric],
+              data[metric],
+              data[metric],
+              data[metric],
+              data[metric],
+              data[metric],
+              data[metric],
+              data[metric],
+              data[metric],
+            ];
           }
         });
         setAuxiliaryMetrics(stateCopy);
       })
       .then(() => {
-        setTimeout(fetchAuxiliaryMetrics, 5000);
+        setTimeout(fetchAuxiliaryMetrics, 1000);
       });
   };
 
