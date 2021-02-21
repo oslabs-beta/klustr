@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2';
 
 const LineGraphMetrics = ({ metricData, chartLabel }) => {
   const [data, setData] = useState();
-  //const [dataLabel, setDataLabel]
   console.log(metricData);
 
   //const metricDataLabels = [0]
@@ -17,15 +16,13 @@ const LineGraphMetrics = ({ metricData, chartLabel }) => {
   // );
 
   let chartRef;
-  // let counter = 0;
 
   function genData() {
     return {
-      labels: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      labels: [-30, -27, -24, -21, -18, -15, -12, -9, -6, -3, 0],
       datasets: [
         {
           label: chartLabel,
-          // data: [33, 53, 85, 41, 44, 65],
           data: metricData,
           fill: true,
           backgroundColor: 'rgba(75,192,192,0.2)',
@@ -58,22 +55,8 @@ const LineGraphMetrics = ({ metricData, chartLabel }) => {
     // return () => clearInterval(interval);
     setData(genData());
     console.log('useeffect in linegraphmetrics here');
-    // console.log(counter);
     chartRef.chartInstance.update();
-
-    // justDoIt();
-    // setTimeout( () => counter++, 1000);
-    // metricDataLabels.push(metricData.length)
   }, [...metricData]);
-
-  // graph.chartInstance.update();
-
-  // function justDoIt() {
-  //   setInterval(() => {
-  //     setData(genData());
-  //     chartRef.chartInstance.update();
-  //   }, 1000);
-  // }
 
   return (
     <div>

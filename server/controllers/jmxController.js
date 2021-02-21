@@ -4,7 +4,6 @@ const jmxController = {};
 
 // fetch request from Slack
 jmxController.getMetrics = (req, res, next) => {
-  console.time();
   // fetch('http://23.20.153.187:7075/')
   fetch(`http://${req.params.port}/`)
     .then((response) => {
