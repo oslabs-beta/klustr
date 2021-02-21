@@ -24,7 +24,7 @@ const CoreMetricsBox = () => {
         setCoreMetrics(data);
       })
       .then(() => {
-        setTimeout(fetchCoreMetrics, 5000);
+        setTimeout(fetchCoreMetrics, 50000);
       });
   };
 
