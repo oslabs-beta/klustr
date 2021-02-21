@@ -61,18 +61,6 @@ function DashboardContainer({ setRedirect }) {
         <div>
           <label htmlFor='portInput'></label>
         </div>
-
-        <input
-          type='text'
-          id='portInput'
-          name='portInput'
-          placeholder='Port Address'
-          value={portInput}
-          onChange={(e) => setPortInput(e.target.value)}
-        />
-        <button type='submit' onClick={handleSubmit}>
-          Submit
-        </button>
       </div>
 
       <Menu />
