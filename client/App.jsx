@@ -15,10 +15,20 @@ function App() {
   let display;
 
   if (!redirect) {
-    display = <Route exact path='/'> <Welcome setRedirect={setRedirect}/> </Route>
+    display = (
+      <Route exact path='/'>
+        <Welcome setRedirect={setRedirect} />
+      </Route>
+    );
   } else {
-    display = <Route exact path='/' component={ClusterContainer} />;
+    display = (
+      <Route exact path='/'>
+        <ClusterContainer setRedirect={setRedirect} />
+      </Route>
+    );
   }
+
+  // setOnMetricsPage={setOnMetricsPage}
 
   return (
     <StyledMain>
@@ -28,9 +38,15 @@ function App() {
       <StyledPage>
         <Switch>
           {display}
-          <Route path='/cluster' component={ClusterContainer} />
-          <Route path='/metrics' component={MetricsContainer} />
-          <Route path='/brokerView' component={ClusterNodeContainer} />
+          <Route path='/cluster'>
+            <ClusterContainer setRedirect={setRedirect} />
+          </Route>
+          <Route path='/metrics'>
+            <MetricsContainer setRedirect={setRedirect} />
+          </Route>
+          <Route path='/brokerView'>
+            <ClusterNodeContainer setRedirect={setRedirect} />
+          </Route>
           {/* <Route path='/about' component={About} /> */}
           <Route component={ErrorPage} />
         </Switch>

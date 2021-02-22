@@ -54,8 +54,7 @@ const LineGraphMetrics = ({ metricData, chartLabel }) => {
 
     // return () => clearInterval(interval);
     setData(genData());
-    console.log('useeffect in linegraphmetrics here');
-    chartRef.chartInstance.update();
+    // chartRef.chartInstance.update();
   }, [...metricData]);
 
   return (

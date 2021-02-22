@@ -26,10 +26,11 @@ input[type='text'],
 input {
   padding: 10px;
   border-radius: 25px;
+  transition: box-shadow 0.3s;
 }
 
 input:hover {
-  padding: 10px;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.3);
 }
 
 button {
@@ -57,10 +58,12 @@ textarea {
 li {
   padding: 10px;
   text-transform: uppercase;
+  transition: background 0.3s;
 }
 
 li:hover {
-  font-size: 1.2em;
+  font-size: 1.01em;
+  background-color: rgba(225, 225, 225);
 }
 
 label {
@@ -68,7 +71,7 @@ label {
 }
 
 #portSubmit {
-  padding: 10px;
+  padding: 0px;
 }
 
 #welcomeContainer {
@@ -140,6 +143,7 @@ a:visited {
   color: white;
 }
 
+
 #dropdown {
   display: flex;
   flex-direction: row;
@@ -150,4 +154,14 @@ a:visited {
 
 .dashcontainer {
   max-width: 250;
+
+#newLogo {
+  height: 150px;
+  width: 150px;
+}
+
+#welcomeLogo {
+  height: 400px;
+  width: 400px;
+  padding-bottom: 0px;
 }

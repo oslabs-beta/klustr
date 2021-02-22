@@ -5,10 +5,6 @@ import styled, { css } from 'styled-components';
 
 // import CoreMetricsBox and AuxiliaryMetricsBox
 
-const coreMetricsBoxStyle = {
-  margin: 50,
-  padding: 100,
-};
 
 const MetricsContainer = () => {
   return (
