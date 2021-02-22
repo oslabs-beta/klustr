@@ -42,7 +42,6 @@ export default function CoreMetricsCard({ metric, name }) {
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
         <Typography className={classes.body2} align='center'>
           {metric}
         </Typography>

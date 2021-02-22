@@ -147,3 +147,7 @@ a:visited {
   padding-top: 75px;
   padding-bottom: 75px;
 }
+
+.dashcontainer {
+  max-width: 250;
+}
