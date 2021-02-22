@@ -73,7 +73,7 @@ const AuxiliaryMetricsBox = ({}) => {
   const classes = useStyles();
 
   return (
-    <MetricsContainerDiv>
+    <div>
       <div id='dropdown'>
         <MetricsDropdown setPostMetrics={setPostMetrics} />
         <Button
@@ -86,7 +86,6 @@ const AuxiliaryMetricsBox = ({}) => {
           Submit
         </Button>
       </div>
-    <div>
       <MetricsDropdown setPostMetrics={setPostMetrics} />
       <button
         type='btn'
@@ -116,15 +115,8 @@ const AuxiliaryMetricsBox = ({}) => {
         Stop/Start
       </button>
       <AuxiliaryMetrics metrics={auxiliaryMetrics} />
-    </MetricsContainerDiv>
+    </div>
   );
 };
-
-const MetricsContainerDiv = styled.div`
-  maxHeight: 
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start
-`;
 
 export default AuxiliaryMetricsBox;
