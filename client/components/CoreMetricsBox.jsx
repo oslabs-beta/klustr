@@ -36,7 +36,7 @@ const CoreMetricsBox = ({}) => {
   }, []);
 
   const coreMetricNames = [
-    `ACTIVE\nCONTROLLERS`,
+    'ACTIVE\nCONTROLLERS',
     'UNDERREPLICATED\n PARTITIONS',
     'OFFLINE\n PARTITIONS',
   ];
@@ -48,16 +48,7 @@ const CoreMetricsBox = ({}) => {
       </Grid>
     );
   });
-
-  // Grid styling
-  const useStyles = makeStyles({
-    // gridContainer: {
-    //   paddingLeft: '40px',
-    //   paddingRight: '40px',
-    // },
-  });
-
-  const classes = useStyles();
+  s;
 
   return (
     <>
