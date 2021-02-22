@@ -151,8 +151,12 @@ a:visited {
   padding-bottom: 75px;
 }
 
-.dashcontainer {
-  max-width: 250;
+#pausebtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 75px;
 }
 
 #newLogo {
