@@ -48,7 +48,7 @@ function DashboardContainer({ setRedirect }) {
   `;
 
   return (
-    <div>
+    <div className='dashcontainer'>
       <EyeGlass>
         <div id='upperLeftMenu'>
           <a href='' id='eyeglasses'>

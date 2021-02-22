@@ -33,7 +33,7 @@ function MetricsDropdown({ setPostMetrics }) {
             {option}
           </React.Fragment>
         )}
-        style={{ width: 500 }}
+        style={{ width: 800 }}
         renderInput={(params) => (
           <TextField
             {...params}
