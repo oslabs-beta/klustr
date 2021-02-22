@@ -38,7 +38,7 @@ function MetricsDropdown({ setPostMetrics }) {
           <TextField
             {...params}
             variant='outlined'
-            label='Checkboxes'
+            label='Metrics'
             placeholder='Favorites'
             value='selectedMetrics'
           />

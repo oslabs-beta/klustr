@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import AuxiliaryMetrics from './AuxiliaryMetrics.jsx';
 import MetricsDropdown from './MetricsDropdown.jsx';
-import styled, { css } from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { cyan } from '@material-ui/core/colors/';
 
 const AuxiliaryMetricsBox = ({}) => {
   const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
@@ -66,7 +64,12 @@ const AuxiliaryMetricsBox = ({}) => {
       '& > *': {
         margin: theme.spacing(1),
       },
-      backgroundColor: cyan[200],
+    },
+    pausestart: {
+      fontSize: 20,
+    },
+    controls: {
+      height: 100,
     },
   }));
 
@@ -80,14 +83,36 @@ const AuxiliaryMetricsBox = ({}) => {
           variant='contained'
           className='submitMetrics'
           onClick={() => {
+            if (pause) setPause(false);
+            setAuxiliaryMetrics((prevState) => {
+              const metrics = Object.keys(prevState);
+              const stateCopy = JSON.parse(JSON.stringify(prevState));
+              metrics.forEach((key) => delete stateCopy[key]);
+              return stateCopy;
+            });
             fetchAuxiliaryMetrics();
           }}
         >
           Submit
         </Button>
       </div>
-      <MetricsDropdown setPostMetrics={setPostMetrics} />
-      <button
+      <div id='pausebtn'>
+        <Button
+          variant='contained'
+          className={classes.pausestart}
+          onClick={() => {
+            console.log(pause);
+            if (pause) {
+              setPause(false);
+              fetchAuxiliaryMetrics();
+            } else setPause(true);
+          }}
+        >
+          PAUSE / RESTART Metrics Stream
+        </Button>
+      </div>
+      {/* <MetricsDropdown setPostMetrics={setPostMetrics} /> */}
+      {/* <button
         type='btn'
         onClick={() => {
           if (pause) setPause(false);
@@ -101,8 +126,8 @@ const AuxiliaryMetricsBox = ({}) => {
         }}
       >
         Submit Input
-      </button>
-      <button
+      </button> */}
+      {/* <button
         type='btn'
         onClick={() => {
           console.log(pause);
@@ -113,8 +138,12 @@ const AuxiliaryMetricsBox = ({}) => {
         }}
       >
         Stop/Start
-      </button>
-      <AuxiliaryMetrics metrics={auxiliaryMetrics} />
+      </button> */}
+      <AuxiliaryMetrics
+        metrics={auxiliaryMetrics}
+        setPause={setPause}
+        fetchAuxMetrics={fetchAuxiliaryMetrics}
+      />
     </div>
   );
 };

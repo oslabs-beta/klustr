@@ -1,9 +1,7 @@
 import React from 'react';
-import DonutChartMetrics from './DonutChartMetrics.jsx';
 import LineGraphMetrics from './LineGraphMetrics.jsx';
 
 const AuxiliaryMetrics = ({ metrics }) => {
-
   const graphs = [];
 
   const keys = Object.keys(metrics);

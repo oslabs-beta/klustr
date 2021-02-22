@@ -151,8 +151,21 @@ a:visited {
   padding-bottom: 75px;
 }
 
-.dashcontainer {
-  max-width: 250;
+#pausebtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 75px;
+}
+
+#klustr {
+  position: absolute;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 150px;
+  margin-top: -200px;
+  z-index: 10;
+  color: rgb(61, 61, 61);
 }
 
 #newLogo {
@@ -163,5 +176,12 @@ a:visited {
 #welcomeLogo {
   height: 400px;
   width: 400px;
-  padding-bottom: 0px;
+  margin-bottom: 50px;
+}
+
+#inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

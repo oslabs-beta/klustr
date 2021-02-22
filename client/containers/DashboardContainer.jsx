@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Menu from '../components/Menu.jsx';
 import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
+import Drawer from '../components/Drawer.jsx';
 
 function DashboardContainer({ setRedirect }) {
   // hook that contains the text input and update text input
@@ -36,35 +37,35 @@ function DashboardContainer({ setRedirect }) {
 
   // reroute to '/metrics' to display the Metrics Container with all the metrics information
 
-  const EyeGlass = styled.div`
-    display: inline-block;
-    padding: 2rem 1rem;
-    font-size: 3rem;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    text-decoration: none;
-    padding-bottom: 0;
-  `;
+  // const EyeGlass = styled.div`
+  //   display: inline-block;
+  //   padding: 2rem 1rem;
+  //   font-size: 3rem;
+  //   display: flex;
+  //   justify-content: left;
+  //   align-items: center;
+  //   text-decoration: none;
+  //   padding-bottom: 0;
+  // `;
 
   return (
     <div className='dashcontainer'>
-      <EyeGlass>
-        <div id='upperLeftMenu'>
-          <a href='' id='eyeglasses'>
-            <img id='newLogo' src={tempLogo} alt='Kafka Specks Logo' />
-          </a>
-          <br />
-          <div>klustr</div>
-        </div>
-      </EyeGlass>
-      <div id='portSubmit'>
-        <div>
-          <label htmlFor='portInput'></label>
-        </div>
-      </div>
-
-      <Menu />
+      {/* //   <EyeGlass>
+    //     <div id='upperLeftMenu'>
+    //       <a href='' id='eyeglasses'>
+    //         <img id='newLogo' src={tempLogo} alt='Kafka Specks Logo' />
+    //       </a>
+    //       <br />
+    //       <div>klustr</div>
+    //     </div>
+    //   </EyeGlass>
+    //   <div id='portSubmit'>
+    //     <div>
+    //       <label htmlFor='portInput'></label>
+    //     </div>
+    //   </div> */}
+      <Drawer />
+      {/* <Menu /> */}
     </div>
   );
 }
