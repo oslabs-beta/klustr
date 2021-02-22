@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-function Menu() {
+function Menu({}) {
   return (
     <nav>
       <Sul>

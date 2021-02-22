@@ -4,7 +4,7 @@ import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
 import styled, { css } from 'styled-components';
 
-function ClusterContainer() {
+function ClusterContainer({}) {
   // hooks
   // Cluster ID (string) ** Needs to be verified by Team 2 (need to be grabbed from describe cluster)
   // Brokers Info (Array of Objects)
@@ -17,14 +17,6 @@ function ClusterContainer() {
   const [brokers, setBrokers] = useState([]);
   const [topics, setTopics] = useState([]);
   const [consumers, setConsumers] = useState([]);
-
-  // use one hook to update all the states?
-  // const [metrics, setMetrics] = useState(
-  //   setClusterID('id'),
-  //   setBrokers(['brokers']),
-  //   setTopics(['topics']),
-  //   setConsumerGroup(['consumer group'])
-  // );
 
   // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in Dashboard Container
 
@@ -87,37 +79,10 @@ function ClusterContainer() {
   };
 
   useEffect(() => {
-    // // get topics
-    // fetch('/admin/topics', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    //   .then((data) => data.json()) // object with topics array
-    //   .then((data) => setTopics(data.topics))
-    //   .catch((err) => console.log(err));
     fetchTopics();
     fetchBrokerInfo();
     fetchConsumerGroups();
-
-    // get broker info & cluster ID
-    // fetch('/admin/brokerInfo', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    //   .then((data) => data.json()) // object
-    //   .then((data) => setBrokers(data.brokers)) //brokers property, returns  [ { nodeId: 0, host: 'Cerebro', port: 9092 } ]
-    //   .then((data) => setClusterID(data.clusterID)) //clusterID property, returns '1_le6xdKSCuBQUa6duOmcg'
-    //   .catch((err) => console.log(err));
-
-    // console.log('topics', topics);
-    // console.log('cluster', clusterID);
-    // console.log('brokers', brokers);
   }, []);
-  // trigger setMetrics after fetch request to populate Metrics Components
 
   const StyledClusterDiv = styled.div`
     font-size: 1.8em;
@@ -143,23 +108,6 @@ function ClusterContainer() {
       <BrokerBox clusterId={clusterId} brokers={brokers} />
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
-
-      {/* <div id='testingBox'>
-        <span>{topics}</span>
-        <br />
-        <span>{clusterId}</span>
-        <br />
-        <span>
-          {brokers.map((item) => {
-            return <pre>{JSON.stringify(item)}</pre>;
-          })}
-        </span>
-        <span>
-          {consumers.map((item) => {
-            return <pre>{JSON.stringify(item)}</pre>;
-          })}
-        </span>
-      </div> */}
     </div>
   );
 }
