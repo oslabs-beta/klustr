@@ -4,7 +4,7 @@ import MetricsDropdown from './MetricsDropdown.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-const AuxiliaryMetricsBox = ({}) => {
+const AuxiliaryMetricsBox = ({jMXPort}) => {
   const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
   const [postMetrics, setPostMetrics] = useState([]);
   const [pause, setPause] = useState(false);
@@ -14,8 +14,7 @@ const AuxiliaryMetricsBox = ({}) => {
   const fetchAuxiliaryMetrics = () => {
     console.log('fetching aux metrics');
     console.log(postMetrics);
-    //fetch(`/jmx/metrics/${ip address}`, {
-    fetch(`/jmx/advancedMetrics/23.20.153.187:7075`, {
+    fetch(`/jmx/advancedMetrics/${jMXPort}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -96,53 +95,13 @@ const AuxiliaryMetricsBox = ({}) => {
           Submit
         </Button>
       </div>
-      <div id='pausebtn'>
-        <Button
-          variant='contained'
-          className={classes.pausestart}
-          onClick={() => {
-            console.log(pause);
-            if (pause) {
-              setPause(false);
-              fetchAuxiliaryMetrics();
-            } else setPause(true);
-          }}
-        >
-          PAUSE / RESTART Metrics Stream
-        </Button>
-      </div>
-      {/* <MetricsDropdown setPostMetrics={setPostMetrics} /> */}
-      {/* <button
-        type='btn'
-        onClick={() => {
-          if (pause) setPause(false);
-          setAuxiliaryMetrics((prevState) => {
-            const metrics = Object.keys(prevState);
-            const stateCopy = JSON.parse(JSON.stringify(prevState));
-            metrics.forEach((key) => delete stateCopy[key]);
-            return stateCopy;
-          });
-          fetchAuxiliaryMetrics();
-        }}
-      >
-        Submit Input
-      </button> */}
-      {/* <button
-        type='btn'
-        onClick={() => {
-          console.log(pause);
-          if (pause) {
-            setPause(false);
-            fetchAuxiliaryMetrics();
-          } else setPause(true);
-        }}
-      >
-        Stop/Start
-      </button> */}
+
       <AuxiliaryMetrics
         metrics={auxiliaryMetrics}
         setPause={setPause}
+        pause={pause}
         fetchAuxMetrics={fetchAuxiliaryMetrics}
+        classes={classes}
       />
     </div>
   );

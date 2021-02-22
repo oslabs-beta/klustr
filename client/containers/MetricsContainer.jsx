@@ -6,11 +6,11 @@ import styled, { css } from 'styled-components';
 // import CoreMetricsBox and AuxiliaryMetricsBox
 
 
-const MetricsContainer = () => {
+const MetricsContainer = ({jMXPort}) => {
   return (
     <MetricsContainerDiv>
-      <CoreMetricsBox />
-      <AuxiliaryMetricsBox />
+      <CoreMetricsBox jMXPort={jMXPort}/>
+      <AuxiliaryMetricsBox jMXPort={jMXPort}/>
     </MetricsContainerDiv>
   );
 };
