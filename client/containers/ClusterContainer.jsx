@@ -3,6 +3,20 @@ import BrokerBox from '../components/BrokerBox.jsx';
 import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
 import styled, { css } from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { blue } from '@material-ui/core/colors/';
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: blue[500],
+  },
+  title: {
+    fontSize: 30,
+  },
+});
 
 function ClusterContainer({}) {
   // hooks
@@ -99,12 +113,21 @@ function ClusterContainer({}) {
     color: whitesmoke;
   `;
 
+  const classes = useStyles();
+
   return (
     <div>
-      <StyledClusterDiv className='grow'>
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography className={classes.title} align='center'>
+            Connected to Kafka Cluster: {clusterId}
+          </Typography>
+        </CardContent>
+      </Card>
+      {/* <StyledClusterDiv className='grow'>
         {' '}
         Connected to Kafka Cluster: {clusterId}
-      </StyledClusterDiv>
+      </StyledClusterDiv> */}
       <BrokerBox clusterId={clusterId} brokers={brokers} />
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
