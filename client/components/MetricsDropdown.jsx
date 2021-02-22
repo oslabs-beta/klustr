@@ -41,7 +41,6 @@ function MetricsDropdown({ setPostMetrics }) {
             label='Metrics'
             placeholder='Favorites'
             value='selectedMetrics'
-            color='primary'
           />
         )}
       />
