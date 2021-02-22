@@ -33,12 +33,12 @@ function MetricsDropdown({ setPostMetrics }) {
             {option}
           </React.Fragment>
         )}
-        style={{ width: 500 }}
+        style={{ width: 800 }}
         renderInput={(params) => (
           <TextField
             {...params}
             variant='outlined'
-            label='Checkboxes'
+            label='Metrics'
             placeholder='Favorites'
             value='selectedMetrics'
           />
@@ -54,6 +54,21 @@ const selectedMetrics = [
   'cpu_seconds_total',
   'disk_write_bytes',
   'disk_read_bytes',
+  'collection_seconds_count{gc="G1 Young Generation",}',
+  'collection_seconds_sum{gc="G1 Young Generation",}',
+  'leaderelectionrateandtimems_count',
+  'globalpartitioncount',
+  'purgatorysize{delayedOperation="Produce",}',
+  'purgatorysize{delayedOperation="Fetch",}',
+  'isrshrinks_total',
+  'isrexpands_total',
+  'replicafetchermanager_maxlag',
+  'brokertopicmetrics_totalproducerequests_total',
+  'totaltimems{request="Produce",quantile="0.50",}',
+  'totaltimems{request="Produce",quantile="0.75",}',
+  'totaltimems{request="Produce",quantile="0.95",}',
+  'totaltimems{request="Produce",quantile="0.98",}',
+  'totaltimems{request="Produce",quantile="0.99",}',
 ];
 
 export default MetricsDropdown;

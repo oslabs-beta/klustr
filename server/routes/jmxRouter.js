@@ -40,7 +40,6 @@ router.post(
   jmxController.getMetrics,
   jmxController.getAdvancedMetrics,
   (req, res) => {
-    console.timeEnd(); //checking to see time of request, should probably test in front end
     res.status(200).json(res.locals);
   }
 );

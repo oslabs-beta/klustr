@@ -26,10 +26,11 @@ input[type='text'],
 input {
   padding: 10px;
   border-radius: 25px;
+  transition: box-shadow 0.3s;
 }
 
 input:hover {
-  padding: 10px;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.3);
 }
 
 button {
@@ -57,10 +58,12 @@ textarea {
 li {
   padding: 10px;
   text-transform: uppercase;
+  transition: background 0.3s;
 }
 
 li:hover {
-  font-size: 1.2em;
+  font-size: 1.01em;
+  background-color: rgba(225, 225, 225);
 }
 
 label {
@@ -68,7 +71,7 @@ label {
 }
 
 #portSubmit {
-  padding: 10px;
+  padding: 0px;
 }
 
 #welcomeContainer {
@@ -138,4 +141,47 @@ a:visited {
 
 .whiteText {
   color: white;
+}
+
+#dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+#pausebtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 75px;
+}
+
+#klustr {
+  position: absolute;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 150px;
+  margin-top: -200px;
+  z-index: 10;
+  color: rgb(61, 61, 61);
+}
+
+#newLogo {
+  height: 150px;
+  width: 150px;
+}
+
+#welcomeLogo {
+  height: 400px;
+  width: 400px;
+  margin-bottom: 50px;
+}
+
+#inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

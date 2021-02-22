@@ -1,10 +1,13 @@
 import React, { PureComponent, useState } from 'react';
 import styled, { css } from 'styled-components';
-import tempLogo from '../rando-icon-transpo.png';
+import tempLogo from '../LogoDots.svg';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const LogoGoesBrrr = styled.div`
   display: inline-block;
-  padding: 2rem 1rem;
+  padding: 0;
   font-size: 1.2rem;
 `;
 
@@ -41,19 +44,54 @@ function Welcome({ setRedirect }) {
     setRedirect(true);
   };
 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '40ch',
+      },
+    },
+  }));
+
+  const classes = useStyles();
+
   // render() {
   return (
     <div id='welcomeContainer'>
       {/* <h2>KAFKA SPECKS</h2> */}
 
       <LogoGoesBrrr>
-        <img className='rotate' src={tempLogo} alt='Kafka Specks Logo' />
+        <img
+          className='rotate'
+          id='welcomeLogo'
+          src={tempLogo}
+          alt='Kafka Specks Logo'
+        />
+        <div id='klustr'>klustr</div>
       </LogoGoesBrrr>
 
       {/* <p id='welcomeText'>
             To get started, please enter your Port Address on the left.
           </p> */}
-      <div id='portSubmit'>
+      <form id='inputs' className={classes.root} noValidate autoComplete='off'>
+        <TextField
+          id='outlined-basic'
+          label='Enter Port Address'
+          onChange={(event, newValue) => {
+            setPortInput(newValue);
+          }}
+        />
+        <TextField id='outlined-basic' label='Enter IP Address' />
+        <br></br>
+        <Button
+          variant='contained'
+          className='submitMetrics'
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
+      </form>
+      {/* <div id='portSubmit'>
         <div>
           <label htmlFor='portInput'></label>
         </div>
@@ -65,11 +103,11 @@ function Welcome({ setRedirect }) {
           placeholder='Port Address'
           value={portInput}
           onChange={(e) => setPortInput(e.target.value)}
-        />
-        <button type='submit' onClick={handleSubmit}>
+        /> */}
+      {/* <button type='submit' onClick={handleSubmit}>
           Submit
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
     </div>
   );
 }

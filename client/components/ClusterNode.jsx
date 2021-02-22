@@ -29,14 +29,17 @@ import ReactFlow, { Background, Controls, MiniMap } from 'react-flow-renderer';
 
 export const ClusterNode = ({ clusterId, brokers }) => {
   const initialElements = [];
-  const increment = 1000 / brokers.length;
+  let increment = 1000 / brokers.length;
+
+  brokers.length < 2 ? (increment = 250) : increment;
+
   const clusterObj = {
     id: '0',
     // type: 'output',
     data: {
       label: <div id='clusterNode'>Cluster ID: {clusterId}</div>,
     },
-    position: { x: increment, y: 25 },
+    position: { x: 250, y: 25 },
   };
 
   // console.log(brokers);
