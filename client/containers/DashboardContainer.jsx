@@ -5,12 +5,9 @@ import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
 
 function DashboardContainer({ setRedirect }) {
-  // hook that contains the broker address(es) and update broker address(es)
   // hook that contains the text input and update text input
   const [portInput, setPortInput] = useState('');
-  // const [redirect, setRedirect] = useState(false);
-  // add an onChange to input
-  // add onclick/onsubmit to form?
+
   // post request to back end that sends broker ids
   const handleSubmit = (e) => {
     //   // prevent refresh with each letter
