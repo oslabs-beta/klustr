@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Menu from '../components/Menu.jsx';
 import styled, { css } from 'styled-components';
-import tempLogo from '../rando-icon-transpo.png';
+import tempLogo from '../LogoDots.svg';
 
 function DashboardContainer({ setRedirect }) {
   // hook that contains the broker address(es) and update broker address(es)
@@ -47,15 +47,19 @@ function DashboardContainer({ setRedirect }) {
     justify-content: left;
     align-items: center;
     text-decoration: none;
+    padding-bottom: 0;
   `;
 
   return (
     <div>
       <EyeGlass>
-        {/* <img src={tempLogo} alt='Kafka Specks Logo' /> */}
-        <a href='' id='eyeglasses'>
-          👓
-        </a>
+        <div id='upperLeftMenu'>
+          <a href='' id='eyeglasses'>
+            <img id='newLogo' src={tempLogo} alt='Kafka Specks Logo' />
+          </a>
+          <br />
+          <div>klustr</div>
+        </div>
       </EyeGlass>
       <div id='portSubmit'>
         <div>

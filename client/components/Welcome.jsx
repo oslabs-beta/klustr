@@ -1,10 +1,10 @@
 import React, { PureComponent, useState } from 'react';
 import styled, { css } from 'styled-components';
-import tempLogo from '../rando-icon-transpo.png';
+import tempLogo from '../LogoDots.svg';
 
 const LogoGoesBrrr = styled.div`
   display: inline-block;
-  padding: 2rem 1rem;
+  padding: 0;
   font-size: 1.2rem;
 `;
 
@@ -47,7 +47,12 @@ function Welcome({ setRedirect }) {
       {/* <h2>KAFKA SPECKS</h2> */}
 
       <LogoGoesBrrr>
-        <img className='rotate' src={tempLogo} alt='Kafka Specks Logo' />
+        <img
+          className='rotate'
+          id='welcomeLogo'
+          src={tempLogo}
+          alt='Kafka Specks Logo'
+        />
       </LogoGoesBrrr>
 
       {/* <p id='welcomeText'>
