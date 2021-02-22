@@ -48,16 +48,10 @@ const CoreMetricsBox = ({}) => {
       </Grid>
     );
   });
-  s;
 
   return (
     <>
-      <Grid
-        container
-        className={classes.gridContainer}
-        justify='center'
-        spacing={4}
-      >
+      <Grid container justify='center' spacing={4}>
         {metricsCards}
         {/* <div>
         <h4>Active Controllers:</h4>
