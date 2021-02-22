@@ -28,13 +28,13 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const [redirect, setRedirect] = useState(false);
-
+  const [jMXPort, setJMXPort] = useState('');
   let display;
 
   if (!redirect) {
     display = (
       <Route exact path='/'>
-        <Welcome setRedirect={setRedirect} />
+        <Welcome setRedirect={setRedirect} setJMXPort={setJMXPort}/>
       </Route>
     );
   } else {
@@ -50,19 +50,19 @@ function App() {
   return (
     <div className={classes.container}>
       <div className={classes.drawer}>
-        <Drawer />
+        <Drawer setRedirect={setRedirect}/>
       </div>
       <div className={classes.content}>
         <Switch>
           {display}
-          <Route path='/home'>
-            <Welcome setRedirect={setRedirect} />
+          <Route exact path='/'>
+            <Welcome setRedirect={setRedirect} setJMXPort={setJMXPort}/>
           </Route>
           <Route path='/cluster'>
             <ClusterContainer setRedirect={setRedirect} />
           </Route>
           <Route path='/metrics'>
-            <MetricsContainer setRedirect={setRedirect} />
+            <MetricsContainer setRedirect={setRedirect} jMXPort={jMXPort}/>
           </Route>
           <Route path='/brokerView'>
             <ClusterNodeContainer setRedirect={setRedirect} />
