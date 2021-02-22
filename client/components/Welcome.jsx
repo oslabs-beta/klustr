@@ -53,6 +53,7 @@ function Welcome({ setRedirect }) {
           src={tempLogo}
           alt='Kafka Specks Logo'
         />
+        <div id='klustr'>klustr</div>
       </LogoGoesBrrr>
 
       {/* <p id='welcomeText'>
