@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import BrokerBox from '../components/BrokerBox.jsx';
 import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
-import styled, { css } from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { blue } from '@material-ui/core/colors/';
+import { pink } from '@material-ui/core/colors/';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: blue[500],
+    backgroundColor: pink[300],
   },
   title: {
     fontSize: 30,
@@ -98,21 +97,6 @@ function ClusterContainer({}) {
     fetchConsumerGroups();
   }, []);
 
-  const StyledClusterDiv = styled.div`
-    font-size: 1.8em;
-    text-align: center;
-    margin: 1em;
-    padding: 0.25em 1em;
-    height: 3em;
-    border-radius: 10px;
-    background-color: #00b4d8;
-    box-shadow: 0 8px 6px -6px gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-  `;
-
   const classes = useStyles();
 
   return (
@@ -124,10 +108,6 @@ function ClusterContainer({}) {
           </Typography>
         </CardContent>
       </Card>
-      {/* <StyledClusterDiv className='grow'>
-        {' '}
-        Connected to Kafka Cluster: {clusterId}
-      </StyledClusterDiv> */}
       <BrokerBox clusterId={clusterId} brokers={brokers} />
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />

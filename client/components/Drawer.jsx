@@ -49,7 +49,7 @@ const Drawer = (props) => {
     <MUIDrawer variant='permanent'>
       <EyeGlass>
         <div id='upperLeftMenu'>
-          <a href='' id='eyeglasses'>
+          <a href='/' id='eyeglasses'>
             <img id='newLogo' src={tempLogo} alt='Kafka Specks Logo' />
           </a>
           <br />
