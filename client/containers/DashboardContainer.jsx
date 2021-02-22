@@ -50,7 +50,7 @@ function DashboardContainer({ setRedirect }) {
   `;
 
   return (
-    <div>
+    <div className='dashcontainer'>
       <EyeGlass>
         {/* <img src={tempLogo} alt='Kafka Specks Logo' /> */}
         <a href='' id='eyeglasses'>

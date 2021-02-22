@@ -139,3 +139,11 @@ a:visited {
 .whiteText {
   color: white;
 }
+
+#dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
