@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ClusterNode } from './ClusterNode.jsx';
 
-function ClusterNodeContainer() {
+function ClusterNodeContainer({}) {
   const [clusterId, setClusterId] = useState('');
   const [brokers, setBrokers] = useState([]);
 

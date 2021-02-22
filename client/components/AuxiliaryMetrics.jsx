@@ -3,7 +3,6 @@ import DonutChartMetrics from './DonutChartMetrics.jsx';
 import LineGraphMetrics from './LineGraphMetrics.jsx';
 
 const AuxiliaryMetrics = ({ metrics }) => {
-  console.log('new passed down state', metrics);
 
   const graphs = [];
 
