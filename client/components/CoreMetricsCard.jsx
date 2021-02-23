@@ -9,15 +9,10 @@ import { cyan } from '@material-ui/core/colors/';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 200,
+    width: 400,
     maxWidth: 350,
     height: 250,
     backgroundColor: cyan[100],
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
   },
   title: {
     fontSize: 20,
@@ -31,7 +26,6 @@ const useStyles = makeStyles({
 
 export default function CoreMetricsCard({ metric, name }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>

@@ -1,5 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { ClusterNode } from './ClusterNode.jsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { grey } from '@material-ui/core/colors/';
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: grey[300],
+  },
+  title: {
+    fontSize: 30,
+  },
+});
 
 function ClusterNodeContainer({}) {
   const [clusterId, setClusterId] = useState('');
@@ -30,9 +44,18 @@ function ClusterNodeContainer({}) {
     fetchBrokerInfo();
   }, []);
 
+  const classes = useStyles();
+
   return (
     <div>
-      <h1>Visual Overview of the Cluster</h1>
+      {/* <h1>Visual Overview of the Cluster</h1> */}
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography className={classes.title} align='center'>
+            Relational Overview of the Cluster
+          </Typography>
+        </CardContent>
+      </Card>
       <ClusterNode clusterId={clusterId} brokers={brokers} />
     </div>
   );
