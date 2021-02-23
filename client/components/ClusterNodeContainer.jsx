@@ -4,11 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { indigo } from '@material-ui/core/colors/';
+import { grey } from '@material-ui/core/colors/';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: indigo[300],
+    backgroundColor: grey[300],
   },
   title: {
     fontSize: 30,
@@ -52,7 +52,7 @@ function ClusterNodeContainer({}) {
       <Card className={classes.root}>
         <CardContent>
           <Typography className={classes.title} align='center'>
-            HIERARCHICAL OVERVIEW OF THE CLUSTER
+            Relational Overview of the Cluster
           </Typography>
         </CardContent>
       </Card>

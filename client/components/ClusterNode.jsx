@@ -39,7 +39,7 @@ export const ClusterNode = ({ clusterId, brokers }) => {
     data: {
       label: <div id='clusterNode'>Cluster ID: {clusterId}</div>,
     },
-    position: { x: 250, y: 25 },
+    position: { x: 750, y: 100 },
   };
 
   // console.log(brokers);

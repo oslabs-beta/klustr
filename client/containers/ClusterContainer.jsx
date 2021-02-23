@@ -1,47 +1,55 @@
 import React, { useState, useEffect } from 'react';
+import BrokerTable from '../components/Broker.jsx';
 import BrokerBox from '../components/BrokerBox.jsx';
 import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
 import styled, { css } from 'styled-components';
-import { Grid } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import { red, pink, purple } from '@material-ui/core/colors/';
+import { red, pink, purple, grey, indigo } from '@material-ui/core/colors/';
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 200,
-    maxWidth: 350,
-    height: 250,
-    backgroundColor: red[300],
+    backgroundColor: '#f5f5f5',
+    marginBottom: 50,
   },
   rootred: {
-    minWidth: 200,
+    width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: red[300],
+    backgroundColor: red[50],
+    opacity: 80,
+    marginBottom: 50,
   },
   rootpink: {
-    minWidth: 200,
+    width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: pink[300],
+    backgroundColor: pink[50],
+    marginBottom: 50,
   },
   rootpurple: {
-    minWidth: 200,
+    width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: purple[200],
+    backgroundColor: purple[50],
+    marginBottom: 50,
   },
   title: {
+    fontSize: 20,
+    marginTop: 20,
+  },
+  cluster: {
     fontSize: 30,
-    marginTop: 40,
   },
   body2: {
     fontSize: 50,
-    marginBottom: 10,
   },
 });
 
@@ -131,6 +139,7 @@ function ClusterContainer({}) {
     titles: ['BROKERS', 'TOPICS', 'CONSUMER GROUPS'],
     data: [brokers, topics, consumers],
     style: [classes.rootred, classes.rootpink, classes.rootpurple],
+    list: [],
   };
 
   const clusterCards = [];
@@ -150,6 +159,15 @@ function ClusterContainer({}) {
               {clusterParts.data[i].length}
             </Typography>
           </CardContent>
+          <CardActions disableSpacing>
+            {/* <Button size='small'>Learn More</Button> */}
+            <IconButton
+              aria-label='listdetails'
+              // onClick={listDetails}
+            >
+              <FormatListBulletedIcon />
+            </IconButton>
+          </CardActions>
         </Card>
       </Grid>
     );
@@ -157,19 +175,20 @@ function ClusterContainer({}) {
 
   return (
     <>
-      <Card className={classes.root}>
+      <Card className={classes.root} elevation={0}>
         <CardContent>
-          <Typography className={classes.title} align='center'>
-            Connected to Kafka Cluster: {clusterId}
+          <Typography className={classes.cluster} align='center'>
+            Connected to Kafka Cluster: <br></br> <strong>{clusterId}</strong>
           </Typography>
         </CardContent>
       </Card>
       <Grid container justify='center' spacing={4}>
         {clusterCards}
       </Grid>
+      <BrokerTable brokers={brokers} />
       {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
-      <TopicBox topics={topics} />
-      <ConsumersBox consumers={consumers} />
+      {/* <TopicBox topics={topics} />
+      <ConsumersBox consumers={consumers} /> */}
     </>
   );
 }
