@@ -7,6 +7,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import ClusterNodeContainer from './components/ClusterNodeContainer.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from './components/Drawer.jsx';
+import { blue } from '@material-ui/core/colors';
 
 const drawerWidth = 100;
 
@@ -34,7 +35,7 @@ function App() {
   if (!redirect) {
     display = (
       <Route exact path='/'>
-        <Welcome setRedirect={setRedirect} setJMXPort={setJMXPort}/>
+        <Welcome setRedirect={setRedirect} setJMXPort={setJMXPort} />
       </Route>
     );
   } else {
@@ -50,19 +51,19 @@ function App() {
   return (
     <div className={classes.container}>
       <div className={classes.drawer}>
-        <Drawer setRedirect={setRedirect}/>
+        <Drawer setRedirect={setRedirect} />
       </div>
       <div className={classes.content}>
         <Switch>
           {display}
           <Route exact path='/'>
-            <Welcome setRedirect={setRedirect} setJMXPort={setJMXPort}/>
+            <Welcome setRedirect={setRedirect} setJMXPort={setJMXPort} />
           </Route>
           <Route path='/cluster'>
             <ClusterContainer setRedirect={setRedirect} />
           </Route>
           <Route path='/metrics'>
-            <MetricsContainer setRedirect={setRedirect} jMXPort={jMXPort}/>
+            <MetricsContainer setRedirect={setRedirect} jMXPort={jMXPort} />
           </Route>
           <Route path='/brokerView'>
             <ClusterNodeContainer setRedirect={setRedirect} />

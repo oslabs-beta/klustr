@@ -21,6 +21,8 @@ import {
 } from '@material-ui/core/colors/';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import Button from '@material-ui/core/Button';
+import TopicsTable from '../components/TopicsTable.jsx';
+import ConsumersTable from '../components/ConsumersTable.jsx';
 
 const useStyles = makeStyles({
   root: {
@@ -195,9 +197,11 @@ function ClusterContainer({}) {
         {clusterCards}
       </Grid>
       <BrokerTable brokers={brokers} />
+      <TopicsTable topics={topics} />
+      <ConsumersTable consumers={consumers} />
       {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
-      {/* <TopicBox topics={topics} />
-      <ConsumersBox consumers={consumers} /> */}
+      {/* <TopicBox topics={topics} /> */}
+      {/* <ConsumersBox consumers={consumers} /> */}
     </>
   );
 }

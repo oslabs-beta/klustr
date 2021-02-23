@@ -23,8 +23,8 @@ const Drawer = (props) => {
       text: 'Main Dashboard',
       icon: <DashboardIcon />,
       onClick: () => {
-        setRedirect(false)
-        return history.push('/')
+        setRedirect(false);
+        return history.push('/');
       },
     },
     {
@@ -33,7 +33,7 @@ const Drawer = (props) => {
       onClick: () => history.push('/cluster'),
     },
     {
-      text: 'Metrics',
+      text: 'Core Metrics',
       icon: <TimelineIcon />,
       onClick: () => history.push('/metrics'),
     },

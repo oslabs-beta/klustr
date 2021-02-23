@@ -25,13 +25,12 @@ const useRowStyles = makeStyles({
   },
 });
 
-function Row({ topic }) {
-  console.log('topic:', topic);
+function Row({ groupId }) {
   const [open, setOpen] = useState(false);
-  const [offsets, setOffsets] = useState([]);
+  const [consumers, setConsumers] = useState([]);
 
   const fetchOffsets = () => {
-    fetch(`/admin/partitionInfo/${topic}`, {
+    fetch(`/admin/consumers/${groupId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -42,8 +41,10 @@ function Row({ topic }) {
       })
       .then((data) => {
         console.log(data);
-        setOffsets(data.offsets);
-      }) // returns an array of partition objects ([{"partition": 0,"offset": "21"}])
+        // filters the data from the fetch request to make consumers an array of member Ids instead of an object
+        const consumerMemberIDs = data.map((obj) => obj.memberId);
+        setConsumers(consumerMemberIDs);
+      }) // returns an array of consumer IDs (strings))
       .catch((err) => console.log(err));
   };
 
@@ -66,35 +67,29 @@ function Row({ topic }) {
           </IconButton>
         </TableCell>
         <TableCell component='th' scope='row'>
-          {topic}
+          {groupId}
         </TableCell>
-        <TableCell align='left'>{offsets.length}</TableCell>
+        <TableCell align='left'>{consumers.length}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box margin={1}>
               <Typography variant='h6' gutterBottom component='div'>
-                <strong>{topic}</strong>
+                <strong>Consumer Group {groupId}</strong>
               </Typography>
               <Table size='small' aria-label='purchases'>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Partition Name</TableCell>
-                    <TableCell>Current Offset</TableCell>
-                    <TableCell>High</TableCell>
-                    <TableCell>Low</TableCell>
+                    <TableCell>Consumer ID</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {offsets.map((offset) => (
-                    <TableRow key={offset.partition}>
+                  {consumers.map((consumer) => (
+                    <TableRow key={consumer}>
                       <TableCell component='th' scope='row'>
-                        {offset.partition}
+                        {consumer}
                       </TableCell>
-                      <TableCell>{offset.offset}</TableCell>
-                      <TableCell>{offset.high}</TableCell>
-                      <TableCell>{offset.low}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -107,7 +102,7 @@ function Row({ topic }) {
   );
 }
 
-export default function TopicsTable({ topics }) {
+export default function ConsumersTable({ consumers }) {
   const classes = useRowStyles();
 
   return (
@@ -117,16 +112,16 @@ export default function TopicsTable({ topics }) {
           <TableRow>
             <TableCell />
             <TableCell className={classes.head} align='left'>
-              Topic Name
+              Consumer Group
             </TableCell>
             <TableCell className={classes.head} align='left'>
-              Number of Partitions
+              Number of Consumers
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {topics.map((topic) => (
-            <Row key={topic} topic={topic} />
+          {consumers.map((obj) => (
+            <Row key={obj.groupId} groupId={obj.groupId} />
           ))}
         </TableBody>
       </Table>
