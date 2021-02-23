@@ -18,6 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 const MetricsContainer = () => {
   const classes = useStyles();
 
@@ -35,8 +36,15 @@ const MetricsContainer = () => {
         <AuxiliaryMetricsBox />
       </MetricsContainerDiv>
     </>
-  );
-};
+
+// const MetricsContainer = ({jMXPort}) => {
+//   return (
+//     <MetricsContainerDiv>
+//       <CoreMetricsBox jMXPort={jMXPort}/>
+//       <AuxiliaryMetricsBox jMXPort={jMXPort}/>
+//     </MetricsContainerDiv>
+//   );
+// };
 
 const MetricsContainerDiv = styled.div`
   display: flex;

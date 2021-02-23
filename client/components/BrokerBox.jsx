@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { blue } from '@material-ui/core/colors/';
 
+
 const useStyles = makeStyles({
   root: {
     minWidth: 200,
@@ -24,8 +25,11 @@ const useStyles = makeStyles({
   },
 });
 
+
 function BrokerBox({ brokers }) {
   // const [brokers, setBrokers] = useState([])
+
+  const classes = useStyles();
 
   // display all broker components
   const brokersArray = [];
@@ -48,46 +52,10 @@ function BrokerBox({ brokers }) {
             </Typography>
           </CardContent>
         </Card>
-        {/* <Broker
-          key={`broker-key-${i}`}
-          port={brokers[i].port}
-          host={brokers[i].host}
-          nodeId={brokers[i].nodeId}
-        /> */}
       </>
     );
   }
 
-  //  brokersArray.push(
-  //    <>
-  //      <Card className={classes.root}>
-  //        <CardContent>
-  //          <Typography className={classes.title} align='center'>
-  //            Brokers
-  //          </Typography>
-  //          <br></br>
-  //          <br></br>
-  //          <br></br>
-  //          <Typography className={classes.body2} align='center'>
-  //            {metric}
-  //          </Typography>
-  //        </CardContent>
-  //      </Card>
-  //      <Broker
-  //        key={`broker-key-${i}`}
-  //        port={brokers[i].port}
-  //        host={brokers[i].host}
-  //        nodeId={brokers[i].nodeId}
-  //      />
-  //    </>
-  //  );
-
-  // prop drill the Brokers Array from Metrics Container?
-  // or hook in directly?
-
-  // brokerArray.forEach((obj) => {
-  //   brokers.push(<Broker />);
-  // });
 
   const BrokerBoxDiv = styled.div`
     display: flex;
@@ -99,10 +67,7 @@ function BrokerBox({ brokers }) {
 
   return (
     <BrokerBoxDiv>
-      {/* <div className='brokerBox'> */}
-      {/* <h4>BROKERS</h4> */}
       {brokersArray}
-      {/* </div> */}
     </BrokerBoxDiv>
   );
 }

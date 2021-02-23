@@ -2,20 +2,50 @@ import React, { useState, useEffect } from 'react';
 import BrokerBox from '../components/BrokerBox.jsx';
 import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
+import styled, { css } from 'styled-components';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { pink } from '@material-ui/core/colors/';
+import { red, pink, purple } from '@material-ui/core/colors/';
+
 
 const useStyles = makeStyles({
   root: {
+    minWidth: 200,
+    maxWidth: 350,
+    height: 250,
+    backgroundColor: red[300],
+  },
+  rootred: {
+    minWidth: 200,
+    maxWidth: 350,
+    height: 250,
+    backgroundColor: red[300],
+  },
+  rootpink: {
+    minWidth: 200,
+    maxWidth: 350,
+    height: 250,
     backgroundColor: pink[300],
+  },
+  rootpurple: {
+    minWidth: 200,
+    maxWidth: 350,
+    height: 250,
+    backgroundColor: purple[200],
   },
   title: {
     fontSize: 30,
+    marginTop: 40,
+  },
+  body2: {
+    fontSize: 50,
+    marginBottom: 10,
   },
 });
+
 
 function ClusterContainer({}) {
   // hooks
@@ -99,6 +129,34 @@ function ClusterContainer({}) {
 
   const classes = useStyles();
 
+  const clusterParts = {
+    titles: ["BROKERS", "TOPICS", "CONSUMER GROUPS"],
+    data: [brokers, topics, consumers],
+    style: [classes.rootred, classes.rootpink, classes.rootpurple],
+  }  
+
+  const clusterCards = [];
+  
+  for (let i = 0; i < clusterParts.titles.length; i++) {
+    console.log('titles', clusterParts.titles[i])
+    clusterCards.push(
+      <Grid xs={12} sm={3}>
+        <Card className={clusterParts.style[i]} >
+          <CardContent>
+            <Typography className={classes.title} align='center'>
+              {clusterParts.titles[i]}
+            </Typography>
+            <br></br>
+            <br></br>
+            <Typography className={classes.body2} align='center'>
+              {clusterParts.data[i].length}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    )
+  }
+
   return (
     <div>
       <Card className={classes.root}>
@@ -108,10 +166,13 @@ function ClusterContainer({}) {
           </Typography>
         </CardContent>
       </Card>
-      <BrokerBox clusterId={clusterId} brokers={brokers} />
+      <Grid container justify='center' spacing={4}>
+      {clusterCards}
+      </ Grid>
+      {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
-    </div>
+    </>
   );
 }
 
