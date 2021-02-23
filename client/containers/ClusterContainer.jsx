@@ -10,7 +10,15 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import { red, pink, purple, grey, indigo } from '@material-ui/core/colors/';
+import {
+  red,
+  pink,
+  purple,
+  grey,
+  indigo,
+  deepPurple,
+  blue,
+} from '@material-ui/core/colors/';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import Button from '@material-ui/core/Button';
 
@@ -23,7 +31,7 @@ const useStyles = makeStyles({
     width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: red[50],
+    backgroundColor: red[300],
     opacity: 80,
     marginBottom: 50,
   },
@@ -31,14 +39,14 @@ const useStyles = makeStyles({
     width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: pink[50],
+    backgroundColor: pink[300],
     marginBottom: 50,
   },
   rootpurple: {
     width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: purple[50],
+    backgroundColor: purple[300],
     marginBottom: 50,
   },
   title: {
@@ -46,7 +54,7 @@ const useStyles = makeStyles({
     marginTop: 20,
   },
   cluster: {
-    fontSize: 30,
+    fontSize: 40,
   },
   body2: {
     fontSize: 50,
@@ -178,7 +186,8 @@ function ClusterContainer({}) {
       <Card className={classes.root} elevation={0}>
         <CardContent>
           <Typography className={classes.cluster} align='center'>
-            Connected to Kafka Cluster: <br></br> <strong>{clusterId}</strong>
+            <span id='connected'>CONNECTED TO KAFKA CLUSTER: </span>
+            <br></br> <strong>{clusterId}</strong>
           </Typography>
         </CardContent>
       </Card>

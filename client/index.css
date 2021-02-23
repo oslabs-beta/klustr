@@ -145,6 +145,10 @@ a:visited {
   color: white;
 }
 
+#connected {
+  font-size: 25px;
+}
+
 #clusterconnection {
   justify-content: center;
   align-items: center;
