@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { pink } from '@material-ui/core/colors/';
 
 const useRowStyles = makeStyles({
   root: {
@@ -22,6 +23,10 @@ const useRowStyles = makeStyles({
   },
   head: {
     fontWeight: 'bold',
+  },
+  topic: {
+    backgroundColor: pink[200],
+    paddingLeft: 10,
   },
 });
 
@@ -74,16 +79,25 @@ function Row({ topic }) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout='auto' unmountOnExit>
             <Box margin={1}>
-              <Typography variant='h6' gutterBottom component='div'>
+              <Typography
+                className={classes.topic}
+                variant='h6'
+                gutterBottom
+                component='div'
+              >
                 <strong>{topic}</strong>
               </Typography>
               <Table size='small' aria-label='purchases'>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Partition Name</TableCell>
-                    <TableCell>Current Offset</TableCell>
-                    <TableCell>High</TableCell>
-                    <TableCell>Low</TableCell>
+                    <TableCell className={classes.head}>
+                      Partition Name
+                    </TableCell>
+                    <TableCell className={classes.head}>
+                      Current Offset
+                    </TableCell>
+                    <TableCell className={classes.head}>High</TableCell>
+                    <TableCell className={classes.head}>Low</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

@@ -5,14 +5,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { cyan } from '@material-ui/core/colors/';
+import { indigo, blue } from '@material-ui/core/colors/';
 
 const useStyles = makeStyles({
   root: {
     width: 400,
     maxWidth: 350,
     height: 250,
-    backgroundColor: cyan[100],
+    backgroundColor: indigo[300],
   },
   title: {
     fontSize: 20,

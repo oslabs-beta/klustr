@@ -76,6 +76,7 @@ function ClusterContainer({}) {
   const [brokers, setBrokers] = useState([]);
   const [topics, setTopics] = useState([]);
   const [consumers, setConsumers] = useState([]);
+  const [selectedTable, setSelectedTable] = useState([]);
 
   // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in Dashboard Container
 
@@ -145,11 +146,17 @@ function ClusterContainer({}) {
 
   const classes = useStyles();
 
+  // let selectedTable;
+
   const clusterParts = {
     titles: ['BROKERS', 'TOPICS', 'CONSUMER GROUPS'],
     data: [brokers, topics, consumers],
     style: [classes.rootred, classes.rootpink, classes.rootpurple],
-    list: [],
+    tables: [
+      [<BrokerTable brokers={brokers} />],
+      [<TopicsTable topics={topics} />],
+      [<ConsumersTable consumers={consumers} />],
+    ],
   };
 
   const clusterCards = [];
@@ -170,10 +177,13 @@ function ClusterContainer({}) {
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            {/* <Button size='small'>Learn More</Button> */}
             <IconButton
               aria-label='listdetails'
-              // onClick={listDetails}
+              onClick={() => {
+                console.log('clicked', clusterParts.titles[i]);
+                setSelectedTable(clusterParts.tables[i]);
+                console.log('selected table', selectedTable);
+              }}
             >
               <FormatListBulletedIcon />
             </IconButton>
@@ -196,9 +206,10 @@ function ClusterContainer({}) {
       <Grid container justify='center' spacing={4}>
         {clusterCards}
       </Grid>
-      <BrokerTable brokers={brokers} />
+      {selectedTable}
+      {/* <BrokerTable brokers={brokers} />
       <TopicsTable topics={topics} />
-      <ConsumersTable consumers={consumers} />
+      <ConsumersTable consumers={consumers} /> */}
       {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
       {/* <TopicBox topics={topics} /> */}
       {/* <ConsumersBox consumers={consumers} /> */}
