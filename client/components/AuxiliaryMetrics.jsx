@@ -1,16 +1,20 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import LineGraphMetrics from './LineGraphMetrics.jsx';
+import MetricsOptions from './MetricsOptions.jsx'
 
 const AuxiliaryMetrics = ({ metrics, fetchAuxMetrics, classes, setPause, pause }) => {
   const graphs = [];
-
+  const chartOptions = {};
   const keys = Object.keys(metrics);
-  keys.forEach((key) =>
+  keys.forEach((key) => {
+    const keyID = `${key}`;
+    if (!MetricsOptions.hasOwnProperty(keyID)) chartOptions[keyID] = MetricsOptions.default;
+    else chartOptions[keyID] = MetricsOptions[keyID];
     graphs.push(
-      <LineGraphMetrics chartLabel={`${key}`} metricData={metrics[key]} />
+      <LineGraphMetrics chartOptions={chartOptions[keyID]} chartLabel={keyID} metricData={metrics[key]} />
     )
-  );
+    });
 
   let button;
 
