@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { blue } from '@material-ui/core/colors/';
 
-
 const useStyles = makeStyles({
   root: {
     minWidth: 200,
@@ -24,7 +23,6 @@ const useStyles = makeStyles({
     marginBottom: 10,
   },
 });
-
 
 function BrokerBox({ brokers }) {
   // const [brokers, setBrokers] = useState([])
@@ -56,20 +54,13 @@ function BrokerBox({ brokers }) {
     );
   }
 
-
   const BrokerBoxDiv = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   `;
 
-  const classes = useStyles();
-
-  return (
-    <BrokerBoxDiv>
-      {brokersArray}
-    </BrokerBoxDiv>
-  );
+  return <BrokerBoxDiv>{brokersArray}</BrokerBoxDiv>;
 }
 
 export default BrokerBox;

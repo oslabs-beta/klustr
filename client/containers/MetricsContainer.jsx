@@ -6,20 +6,25 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { cyan } from '@material-ui/core/colors/';
+import { grey } from '@material-ui/core/colors/';
 
 const useStyles = makeStyles({
   root: {
     marginBottom: 50,
-    backgroundColor: cyan[300],
+    backgroundColor: grey[300],
   },
   title: {
     fontSize: 30,
   },
 });
 
+const MetricsContainerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
-const MetricsContainer = () => {
+const MetricsContainer = ({ jMXPort }) => {
   const classes = useStyles();
 
   return (
@@ -32,24 +37,11 @@ const MetricsContainer = () => {
         </CardContent>
       </Card>
       <MetricsContainerDiv>
-        <CoreMetricsBox />
-        <AuxiliaryMetricsBox />
+        <CoreMetricsBox jMXPort={jMXPort} />
+        <AuxiliaryMetricsBox jMXPort={jMXPort} />
       </MetricsContainerDiv>
     </>
-
-// const MetricsContainer = ({jMXPort}) => {
-//   return (
-//     <MetricsContainerDiv>
-//       <CoreMetricsBox jMXPort={jMXPort}/>
-//       <AuxiliaryMetricsBox jMXPort={jMXPort}/>
-//     </MetricsContainerDiv>
-//   );
-// };
-
-const MetricsContainerDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
+  );
+};
 
 export default MetricsContainer;

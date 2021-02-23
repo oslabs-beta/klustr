@@ -62,7 +62,7 @@ const selectedMetrics = [
   'purgatorysize{delayedOperation="Fetch",}',
   'isrshrinks_total',
   'isrexpands_total',
-  'replicafetchermanager_maxlag',
+  // 'replicafetchermanager_maxlag',
   'brokertopicmetrics_totalproducerequests_total',
   // 'totaltimems{request="Produce",quantile="0.50",}',
   // 'totaltimems{request="Produce",quantile="0.75",}',

@@ -54,6 +54,11 @@ function Welcome({ setRedirect, setJMXPort }) {
         width: '40ch',
       },
     },
+    // textfield: {
+    //   backgroundColor: '#D4CECD',
+    //   opacity: 50,
+    //   fontColor: 'white',
+    // },
   }));
 
   const classes = useStyles();
@@ -78,6 +83,7 @@ function Welcome({ setRedirect, setJMXPort }) {
           </p> */}
       <form id='inputs' className={classes.root} noValidate>
         <TextField
+          className={classes.textfield}
           id='outlined-basic'
           label='Enter Broker Port'
           onChange={(event) => {
@@ -85,6 +91,7 @@ function Welcome({ setRedirect, setJMXPort }) {
           }}
         />
         <TextField
+          className={classes.textfield}
           id='outlined-basic'
           label='Enter Exporter Port'
           onChange={(event) => {

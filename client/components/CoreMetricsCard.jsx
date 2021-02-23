@@ -9,7 +9,7 @@ import { cyan } from '@material-ui/core/colors/';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 200,
+    width: 400,
     maxWidth: 350,
     height: 250,
     backgroundColor: cyan[100],
