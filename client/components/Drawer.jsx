@@ -17,12 +17,15 @@ import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
 
 const Drawer = (props) => {
-  const { history } = props;
+  const { history, setRedirect } = props;
   const itemsList = [
     {
       text: 'Main Dashboard',
       icon: <DashboardIcon />,
-      onClick: () => history.push('/'),
+      onClick: () => {
+        setRedirect(false)
+        return history.push('/')
+      },
     },
     {
       text: 'Cluster Overview',
@@ -50,7 +53,7 @@ const Drawer = (props) => {
       <EyeGlass>
         <div id='upperLeftMenu'>
           <a href='' id='eyeglasses'>
-            <img id='newLogo' src={tempLogo} alt='Kafka Specks Logo' />
+            <img id='newLogo' src={tempLogo} alt='klustr Logo' />
           </a>
           <br />
         </div>

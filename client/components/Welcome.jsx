@@ -11,10 +11,11 @@ const LogoGoesBrrr = styled.div`
   font-size: 1.2rem;
 `;
 
-function Welcome({ setRedirect }) {
+function Welcome({ setRedirect, setJMXPort }) {
   // hook that contains the broker address(es) and update broker address(es)
   // hook that contains the text input and update text input
   const [portInput, setPortInput] = useState('');
+  const [jMXInput, setJMXInput] = useState('');
   // const [redirect, setRedirect] = useState(false);
   // add an onChange to input
   // add onclick/onsubmit to form?
@@ -26,7 +27,6 @@ function Welcome({ setRedirect }) {
     if (portInput) {
       //     // create port object from 'portInput' input
 
-      console.log(portInput);
       // post request
       fetch('/admin/brokerAddress', {
         method: 'POST',
@@ -40,8 +40,11 @@ function Welcome({ setRedirect }) {
         .then((data) => data.json())
         .then((data) => console.log(data));
     }
-    setPortInput(''); // clear out the port address input or keep displaying current port?
+    if (jMXInput) {
+      setJMXPort(jMXInput);
+    }
     setRedirect(true);
+    // setPortInput(''); // clear out the port address input or keep displaying current port?
   };
 
   const useStyles = makeStyles((theme) => ({
@@ -51,6 +54,11 @@ function Welcome({ setRedirect }) {
         width: '40ch',
       },
     },
+    // textfield: {
+    //   backgroundColor: '#D4CECD',
+    //   opacity: 50,
+    //   fontColor: 'white',
+    // },
   }));
 
   const classes = useStyles();
@@ -73,15 +81,23 @@ function Welcome({ setRedirect }) {
       {/* <p id='welcomeText'>
             To get started, please enter your Port Address on the left.
           </p> */}
-      <form id='inputs' className={classes.root} noValidate autoComplete='off'>
+      <form id='inputs' className={classes.root} noValidate>
         <TextField
+          className={classes.textfield}
           id='outlined-basic'
-          label='Enter Port Address'
-          onChange={(event, newValue) => {
-            setPortInput(newValue);
+          label='Enter Broker Port'
+          onChange={(event) => {
+            setPortInput(event.target.value);
           }}
         />
-        <TextField id='outlined-basic' label='Enter IP Address' />
+        <TextField
+          className={classes.textfield}
+          id='outlined-basic'
+          label='Enter Exporter Port'
+          onChange={(event) => {
+            setJMXInput(event.target.value);
+          }}
+        />
         <br></br>
         <Button
           variant='contained'

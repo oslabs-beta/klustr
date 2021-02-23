@@ -1,8 +1,65 @@
 import React, { useState, useEffect } from 'react';
+import BrokerTable from '../components/Broker.jsx';
 import BrokerBox from '../components/BrokerBox.jsx';
 import TopicBox from '../components/TopicBox.jsx';
 import ConsumersBox from '../components/ConsumersBox.jsx';
 import styled, { css } from 'styled-components';
+import { Grid, IconButton } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Typography from '@material-ui/core/Typography';
+import {
+  red,
+  pink,
+  purple,
+  grey,
+  indigo,
+  deepPurple,
+  blue,
+} from '@material-ui/core/colors/';
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#f5f5f5',
+    marginBottom: 50,
+  },
+  rootred: {
+    width: 400,
+    maxWidth: 350,
+    height: 250,
+    backgroundColor: red[300],
+    opacity: 80,
+    marginBottom: 50,
+  },
+  rootpink: {
+    width: 400,
+    maxWidth: 350,
+    height: 250,
+    backgroundColor: pink[300],
+    marginBottom: 50,
+  },
+  rootpurple: {
+    width: 400,
+    maxWidth: 350,
+    height: 250,
+    backgroundColor: purple[300],
+    marginBottom: 50,
+  },
+  title: {
+    fontSize: 20,
+    marginTop: 20,
+  },
+  cluster: {
+    fontSize: 40,
+  },
+  body2: {
+    fontSize: 50,
+  },
+});
 
 function ClusterContainer({}) {
   // hooks
@@ -84,31 +141,64 @@ function ClusterContainer({}) {
     fetchConsumerGroups();
   }, []);
 
-  const StyledClusterDiv = styled.div`
-    font-size: 1.8em;
-    text-align: center;
-    margin: 1em;
-    padding: 0.25em 1em;
-    height: 3em;
-    border-radius: 10px;
-    background-color: #00b4d8;
-    box-shadow: 0 8px 6px -6px gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-  `;
+  const classes = useStyles();
+
+  const clusterParts = {
+    titles: ['BROKERS', 'TOPICS', 'CONSUMER GROUPS'],
+    data: [brokers, topics, consumers],
+    style: [classes.rootred, classes.rootpink, classes.rootpurple],
+    list: [],
+  };
+
+  const clusterCards = [];
+
+  for (let i = 0; i < clusterParts.titles.length; i++) {
+    console.log('titles', clusterParts.titles[i]);
+    clusterCards.push(
+      <Grid xs={12} sm={3}>
+        <Card className={clusterParts.style[i]}>
+          <CardContent>
+            <Typography className={classes.title} align='center'>
+              {clusterParts.titles[i]}
+            </Typography>
+            <br></br>
+            <br></br>
+            <Typography className={classes.body2} align='center'>
+              {clusterParts.data[i].length}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            {/* <Button size='small'>Learn More</Button> */}
+            <IconButton
+              aria-label='listdetails'
+              // onClick={listDetails}
+            >
+              <FormatListBulletedIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </Grid>
+    );
+  }
 
   return (
-    <div>
-      <StyledClusterDiv className='grow'>
-        {' '}
-        Connected to Kafka Cluster: {clusterId}
-      </StyledClusterDiv>
-      <BrokerBox clusterId={clusterId} brokers={brokers} />
-      <TopicBox topics={topics} />
-      <ConsumersBox consumers={consumers} />
-    </div>
+    <>
+      <Card className={classes.root} elevation={0}>
+        <CardContent>
+          <Typography className={classes.cluster} align='center'>
+            <span id='connected'>CONNECTED TO KAFKA CLUSTER: </span>
+            <br></br> <strong>{clusterId}</strong>
+          </Typography>
+        </CardContent>
+      </Card>
+      <Grid container justify='center' spacing={4}>
+        {clusterCards}
+      </Grid>
+      <BrokerTable brokers={brokers} />
+      {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
+      {/* <TopicBox topics={topics} />
+      <ConsumersBox consumers={consumers} /> */}
+    </>
   );
 }
 

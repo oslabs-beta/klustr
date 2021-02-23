@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  color: rgba(20, 21, 44, 0.692);
 }
 /* 
 color palette rgb codes:
@@ -13,6 +14,7 @@ color palette rgb codes:
   #472D30
 */
 body {
+  /* background-color: rgba(8, 4, 29, 0.733); */
   background-color: whitesmoke;
 }
 
@@ -143,6 +145,17 @@ a:visited {
   color: white;
 }
 
+#connected {
+  font-size: 25px;
+}
+
+#clusterconnection {
+  justify-content: center;
+  align-items: center;
+  margin-top: 20;
+  margin-bottom: 40;
+}
+
 #dropdown {
   display: flex;
   flex-direction: row;
@@ -165,7 +178,8 @@ a:visited {
   font-size: 150px;
   margin-top: -200px;
   z-index: 10;
-  color: rgb(61, 61, 61);
+  color: rgba(20, 21, 44, 0.692);
+  /* color: rgb(61, 61, 61); */
 }
 
 #newLogo {
