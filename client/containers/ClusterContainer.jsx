@@ -10,7 +10,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { red, pink, purple } from '@material-ui/core/colors/';
 
-
 const useStyles = makeStyles({
   root: {
     minWidth: 200,
@@ -45,7 +44,6 @@ const useStyles = makeStyles({
     marginBottom: 10,
   },
 });
-
 
 function ClusterContainer({}) {
   // hooks
@@ -130,18 +128,18 @@ function ClusterContainer({}) {
   const classes = useStyles();
 
   const clusterParts = {
-    titles: ["BROKERS", "TOPICS", "CONSUMER GROUPS"],
+    titles: ['BROKERS', 'TOPICS', 'CONSUMER GROUPS'],
     data: [brokers, topics, consumers],
     style: [classes.rootred, classes.rootpink, classes.rootpurple],
-  }  
+  };
 
   const clusterCards = [];
-  
+
   for (let i = 0; i < clusterParts.titles.length; i++) {
-    console.log('titles', clusterParts.titles[i])
+    console.log('titles', clusterParts.titles[i]);
     clusterCards.push(
       <Grid xs={12} sm={3}>
-        <Card className={clusterParts.style[i]} >
+        <Card className={clusterParts.style[i]}>
           <CardContent>
             <Typography className={classes.title} align='center'>
               {clusterParts.titles[i]}
@@ -154,11 +152,11 @@ function ClusterContainer({}) {
           </CardContent>
         </Card>
       </Grid>
-    )
+    );
   }
 
   return (
-    <div>
+    <>
       <Card className={classes.root}>
         <CardContent>
           <Typography className={classes.title} align='center'>
@@ -167,8 +165,8 @@ function ClusterContainer({}) {
         </CardContent>
       </Card>
       <Grid container justify='center' spacing={4}>
-      {clusterCards}
-      </ Grid>
+        {clusterCards}
+      </Grid>
       {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
