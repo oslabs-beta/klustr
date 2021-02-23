@@ -149,6 +149,11 @@ a:visited {
   font-size: 25px;
 }
 
+/* #names {
+  color: red;
+  background-color: pink;
+} */
+
 #clusterconnection {
   justify-content: center;
   align-items: center;
