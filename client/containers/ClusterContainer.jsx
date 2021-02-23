@@ -127,21 +127,6 @@ function ClusterContainer({}) {
     fetchConsumerGroups();
   }, []);
 
-  const StyledClusterDiv = styled.div`
-    font-size: 1.8em;
-    text-align: center;
-    margin: 1em;
-    padding: 0.25em 1em;
-    height: 3em;
-    border-radius: 10px;
-    background-color: #00b4d8;
-    box-shadow: 0 8px 6px -6px gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-  `;
-
   const classes = useStyles();
 
   const clusterParts = {
@@ -151,9 +136,6 @@ function ClusterContainer({}) {
   }  
 
   const clusterCards = [];
-
-  // console.log('title', clusterParts.titles);
-  // console.log('data', clusterParts.data);
   
   for (let i = 0; i < clusterParts.titles.length; i++) {
     console.log('titles', clusterParts.titles[i])
@@ -176,16 +158,18 @@ function ClusterContainer({}) {
   }
 
   return (
-    <>
-      <StyledClusterDiv className='grow'>
-        {' '}
-        Connected to Kafka Cluster: {clusterId}
-      </StyledClusterDiv>
+    <div>
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography className={classes.title} align='center'>
+            Connected to Kafka Cluster: {clusterId}
+          </Typography>
+        </CardContent>
+      </Card>
       <Grid container justify='center' spacing={4}>
       {clusterCards}
       </ Grid>
       {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
-      
       <TopicBox topics={topics} />
       <ConsumersBox consumers={consumers} />
     </>
