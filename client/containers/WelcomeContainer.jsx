@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
 import { makeStyles } from '@material-ui/core/styles';

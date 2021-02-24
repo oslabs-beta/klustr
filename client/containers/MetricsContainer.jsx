@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CoreMetricsBox from '../components/CoreMetricsBox.jsx';
 import AuxiliaryMetricsBox from '../components/AuxiliaryMetricsBox.jsx';
 import styled, { css } from 'styled-components';
@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors/';
 
+// Material UI Styling
 const useStyles = makeStyles({
   root: {
     marginBottom: 50,
@@ -18,6 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
+// Styled Components Styling
 const MetricsContainerDiv = styled.div`
   display: flex;
   flex-direction: column;

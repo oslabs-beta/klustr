@@ -50,14 +50,14 @@ const Sidebar = (props) => {
   ];
   return (
     <MUIDrawer variant='permanent'>
-      <EyeGlass>
+      <SmallKlustrLogo>
         <div id='upperLeftMenu'>
-          <a href='' id='eyeglasses'>
+          <a href='/' id='smallklustr'>
             <img id='newLogo' src={tempLogo} alt='klustr Logo' />
           </a>
           <br />
         </div>
-      </EyeGlass>
+      </SmallKlustrLogo>
       <Divider />
       <List>
         {itemsList.map((item, index) => {
@@ -74,7 +74,7 @@ const Sidebar = (props) => {
   );
 };
 
-const EyeGlass = styled.div`
+const SmallKlustrLogo = styled.div`
   display: inline-block;
   padding: 2rem 1rem;
   font-size: 3rem;

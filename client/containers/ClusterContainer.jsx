@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import BrokerTable from '../components/Broker.jsx';
+import BrokersTable from '../components/BrokersTable.jsx';
+import TopicsTable from '../components/TopicsTable.jsx';
+import ConsumersTable from '../components/ConsumersTable.jsx';
 import { Grid, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { red, pink, purple } from '@material-ui/core/colors/';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import { red, pink, purple } from '@material-ui/core/colors/';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
-import TopicsTable from '../components/TopicsTable.jsx';
-import ConsumersTable from '../components/ConsumersTable.jsx';
 
+// Material UI styling
 const useStyles = makeStyles({
   root: {
     backgroundColor: '#f5f5f5',
@@ -57,7 +58,7 @@ function ClusterContainer({}) {
   const [consumers, setConsumers] = useState([]);
   const [selectedTable, setSelectedTable] = useState([]);
 
-  // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in the Welcome Page
+  // Fetch - GET all the main metrics after user has provided port inputs on Welcome Page
 
   const fetchTopics = () => {
     fetch('/admin/topics', {
@@ -86,7 +87,7 @@ function ClusterContainer({}) {
         'Content-Type': 'application/json',
       },
     })
-      .then((response) => response.json()) // object
+      .then((response) => response.json())
       .then((data) => {
         setBrokers((brokers) => {
           brokers = data.brokers;
@@ -125,14 +126,13 @@ function ClusterContainer({}) {
 
   const classes = useStyles();
 
-  // let selectedTable;
-
+  // needed information for each cluster
   const clusterParts = {
     titles: ['BROKERS', 'TOPICS', 'CONSUMER GROUPS'],
     data: [brokers, topics, consumers],
     style: [classes.rootred, classes.rootpink, classes.rootpurple],
     tables: [
-      [<BrokerTable brokers={brokers} />],
+      [<BrokersTable brokers={brokers} />],
       [<TopicsTable topics={topics} />],
       [<ConsumersTable consumers={consumers} />],
     ],
@@ -141,10 +141,9 @@ function ClusterContainer({}) {
   const clusterCards = [];
 
   for (let i = 0; i < clusterParts.titles.length; i++) {
-    console.log('titles', clusterParts.titles[i]);
     clusterCards.push(
       <Grid xs={12} sm={3}>
-        <Card className={clusterParts.style[i]}>
+        <Card key={clusterParts.titles[i]} className={clusterParts.style[i]}>
           <CardContent>
             <Typography className={classes.title} align='center'>
               {clusterParts.titles[i]}
@@ -159,9 +158,7 @@ function ClusterContainer({}) {
             <IconButton
               aria-label='listdetails'
               onClick={() => {
-                console.log('clicked', clusterParts.titles[i]);
                 setSelectedTable(clusterParts.tables[i]);
-                console.log('selected table', selectedTable);
               }}
             >
               <FormatListBulletedIcon />

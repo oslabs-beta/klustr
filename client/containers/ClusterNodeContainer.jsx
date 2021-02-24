@@ -16,6 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
+// FETCH broker information
 function ClusterNodeContainer({}) {
   const [clusterId, setClusterId] = useState('');
   const [brokers, setBrokers] = useState([]);

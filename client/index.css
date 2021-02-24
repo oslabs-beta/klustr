@@ -5,29 +5,15 @@
   font-family: 'Roboto', sans-serif;
   color: rgba(20, 21, 44, 0.692);
 }
-/* 
-color palette rgb codes:
-  #C9CBA3
-  #FFE1A8 (too banana? using papayawhip instead)
-  #E26D5C
-  #723D46
-  #472D30
-*/
+
 body {
   /* background-color: rgba(8, 4, 29, 0.733); */
   background-color: whitesmoke;
 }
 
-#testingBox {
-  border: 5px solid purple;
-  border-radius: 10px;
-  border-style: groove double;
-}
-
 input[type='text'],
 input {
-  padding: 10px;
-  border-radius: 25px;
+  padding: 15px;
   transition: box-shadow 0.3s;
 }
 
@@ -72,10 +58,6 @@ label {
   text-transform: uppercase;
 }
 
-#portSubmit {
-  padding: 0px;
-}
-
 #welcomeContainer {
   display: flex;
   justify-content: center;
@@ -83,7 +65,7 @@ label {
   flex-direction: column;
 }
 
-#eyeglasses {
+#smallklustr {
   font-size: 3em;
   text-decoration: none;
   /* box-shadow: 0 8px 6px -6px black; */
@@ -92,11 +74,6 @@ label {
   align-items: center;
   height: 50px;
   margin-top: 50px;
-}
-
-#welcomeText {
-  text-transform: uppercase;
-  animation: animateWelcomeText 1.5s linear infinite;
 }
 
 @keyframes animateWelcomeText {
@@ -111,32 +88,6 @@ label {
   }
 }
 
-.containerBoxes {
-  font-size: 1.5em;
-  text-align: center;
-  margin: 1em;
-  padding: 0.25em 1em;
-  height: 3em;
-  border-radius: 10px;
-  background-color: #00b4d8;
-  box-shadow: 0 8px 6px -6px gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: whitesmoke;
-}
-
-.grow {
-  transition: all 0.2s ease-in-out;
-}
-.grow:hover {
-  transform: scale(1.1);
-}
-
-/* a: {
-  color: #ff006e;
-} */
-
 a:visited {
   color: #ff006e;
 }
@@ -148,11 +99,6 @@ a:visited {
 #connected {
   font-size: 25px;
 }
-
-/* #names {
-  color: red;
-  background-color: pink;
-} */
 
 #clusterconnection {
   justify-content: center;
