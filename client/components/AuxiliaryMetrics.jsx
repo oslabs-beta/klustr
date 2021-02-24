@@ -20,11 +20,13 @@ const AuxiliaryMetrics = ({
       chartOptions[keyID] = MetricsOptions.default;
     else chartOptions[keyID] = MetricsOptions[keyID];
     graphs.push(
+      <li key={keyID}>
       <LineGraphMetrics
         chartOptions={chartOptions[keyID]}
         chartLabel={keyID}
         metricData={metrics[key]}
       />
+      </li>
     );
   });
 
@@ -53,7 +55,9 @@ const AuxiliaryMetrics = ({
   return (
     <div>
       {button}
-      {graphs}
+      <ul>
+        {graphs}
+      </ul>
     </div>
   );
 };

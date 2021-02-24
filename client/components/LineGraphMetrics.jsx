@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 const LineGraphMetrics = ({ metricData, chartOptions, chartLabel }) => {
-  const { bkgdColor, brdrColor, labelsArray, titleObj, chartHeight } = chartOptions;
+  const { bkgdColor, brdrColor, labelsArray, titleObj, yConfig } = chartOptions;
   const [data, setData] = useState();
   console.log(metricData);
 
@@ -34,17 +34,10 @@ const LineGraphMetrics = ({ metricData, chartOptions, chartLabel }) => {
   }
 
   const options = {
-    responsive: true,
     maintainAspectRatio: false,
     title: titleObj,
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: false,
-          },
-        },
-      ],
+      yAxes: yConfig,
     },
   };
 
@@ -63,7 +56,7 @@ const LineGraphMetrics = ({ metricData, chartOptions, chartLabel }) => {
     <div>
       <Line
         data={data}
-        height={chartHeight}
+        height={375}
         options={options}
         ref={(reference) => (chartRef = reference)}
       />
