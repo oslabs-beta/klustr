@@ -50,24 +50,4 @@ jmxController.getAdvancedMetrics = (req, res, next) => {
   return next();
 };
 
-// brokertopicmetrics_bytesin_total
-jmxController.getBytesInTotal = (req, res, next) => {
-  const matches = res.locals.response.match(
-    /brokertopicmetrics_bytesin_total \d+.\d+/g
-  );
-  const convertedToNum = Number(matches[0].match(/\d.*/g)[0]);
-  res.locals.brokerBytesIn = convertedToNum;
-  return next();
-};
-
-// brokertopicmetrics_bytesout_total
-jmxController.getBytesOutTotal = (req, res, next) => {
-  const matches = res.locals.response.match(
-    /brokertopicmetrics_bytesout_total \d+.\d+/g
-  );
-  const convertedToNum = Number(matches[0].match(/\d.*/g)[0]);
-  res.locals.brokerBytesOut = convertedToNum;
-  return next();
-};
-
 module.exports = jmxController;

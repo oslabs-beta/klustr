@@ -17,18 +17,6 @@ router.get(
     })
 );
 
-router.get(
-  '/advancedMetrics/:port',
-  jmxController.getMetrics,
-  jmxController.getBytesInTotal,
-  jmxController.getBytesOutTotal,
-  (req, res) =>
-    res.status(200).json({
-      brokerBytesIn: res.locals.brokerBytesIn,
-      brokerBytesOut: res.locals.brokerBytesOut,
-    })
-);
-
 //Takes an object with key "metrics" and value is an array of metrics we want to obtain
 //Bytes In Per Sec => brokertopicmetrics_bytesin_total
 //Bytes Out Per Sec => brokertopicmetrics_bytesout_total
