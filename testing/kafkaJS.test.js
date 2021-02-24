@@ -61,10 +61,10 @@ describe('Receive cluster information from Kafka broker', () => {
         return request(server)
           .get('/admin/brokerInfo')
           .expect(function (res) {
-            res.hasOwnProperty('clusterId');
-            res.hasOwnProperty('brokers');
-            typeof res['clusterId'] === 'string';
-            Array.isArray(res['brokers']) === true;
+            expect(res.body.hasOwnProperty('clusterId')).toEqual(true);
+            expect(res.body.hasOwnProperty('brokers')).toEqual(true);
+            expect(typeof res.body['clusterId']).toEqual('string');
+            expect(Array.isArray(res.body['brokers'])).toEqual(true);
           });
       });
     });

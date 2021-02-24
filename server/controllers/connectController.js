@@ -1,6 +1,6 @@
 const connectController = {};
 
-let currentAddress = ['localhost:9092'];
+let currentAddress = [];
 
 connectController.setBrokerAddress = (req, res, next) => {
   try {
