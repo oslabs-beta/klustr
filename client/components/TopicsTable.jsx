@@ -15,6 +15,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { pink } from '@material-ui/core/colors/';
 
+// Material UI Styling
 const useRowStyles = makeStyles({
   root: {
     '& > *': {
@@ -30,6 +31,7 @@ const useRowStyles = makeStyles({
   },
 });
 
+// child component to fetch Topic partition and offsets
 function Row({ topic }) {
   console.log('topic:', topic);
   const [open, setOpen] = useState(false);
@@ -58,6 +60,7 @@ function Row({ topic }) {
 
   const classes = useRowStyles();
 
+  // components that hold collapsed information in table
   return (
     <React.Fragment>
       <TableRow className={classes.root}>
@@ -120,6 +123,8 @@ function Row({ topic }) {
     </React.Fragment>
   );
 }
+
+// Collapsible Table for Topics
 
 export default function TopicsTable({ topics }) {
   const classes = useRowStyles();

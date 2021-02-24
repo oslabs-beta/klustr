@@ -4,7 +4,8 @@ import MetricsDropdown from './MetricsDropdown.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-const AuxiliaryMetricsBox = ({jMXPort}) => {
+// Component to Handle Auxiliary Metrics from JMX Exporter
+const AuxiliaryMetricsBox = ({ jMXPort }) => {
   const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
   const [postMetrics, setPostMetrics] = useState([]);
   const [pause, setPause] = useState(false);
@@ -74,6 +75,7 @@ const AuxiliaryMetricsBox = ({jMXPort}) => {
 
   const classes = useStyles();
 
+  // metrics dropdown for users to select auxiliary metrics to view and capture inputs onClick for graphing
   return (
     <div>
       <div id='dropdown'>

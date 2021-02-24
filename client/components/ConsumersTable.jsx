@@ -15,6 +15,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { purple } from '@material-ui/core/colors/';
 
+// Material UI Styling
 const useRowStyles = makeStyles({
   root: {
     '& > *': {
@@ -33,11 +34,12 @@ const useRowStyles = makeStyles({
   },
 });
 
+// child component to fetch Consumers
 function Row({ groupId }) {
   const [open, setOpen] = useState(false);
   const [consumers, setConsumers] = useState([]);
 
-  const fetchOffsets = () => {
+  const fetchConsumers = () => {
     fetch(`/admin/consumers/${groupId}`, {
       method: 'GET',
       headers: {
@@ -57,11 +59,12 @@ function Row({ groupId }) {
   };
 
   useEffect(() => {
-    fetchOffsets();
+    fetchConsumers();
   }, []);
 
   const classes = useRowStyles();
 
+  // components that hold collapsed information in table
   return (
     <React.Fragment>
       <TableRow className={classes.root}>
@@ -118,6 +121,8 @@ function Row({ groupId }) {
     </React.Fragment>
   );
 }
+
+// Collapsible Table for Consumers
 
 export default function ConsumersTable({ consumers }) {
   const classes = useRowStyles();

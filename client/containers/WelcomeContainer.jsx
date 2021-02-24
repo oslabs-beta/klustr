@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,22 +12,14 @@ const LogoGoesBrrr = styled.div`
 `;
 
 function Welcome({ setRedirect, setJMXPort }) {
-  // hook that contains the broker address(es) and update broker address(es)
-  // hook that contains the text input and update text input
   const [portInput, setPortInput] = useState('');
   const [jMXInput, setJMXInput] = useState('');
-  // const [redirect, setRedirect] = useState(false);
-  // add an onChange to input
-  // add onclick/onsubmit to form?
-  // post request to back end that sends broker ids
-  const handleSubmit = (e) => {
-    //   // prevent refresh with each letter
-    e.preventDefault();
-    //   // if there is a port address
-    if (portInput) {
-      //     // create port object from 'portInput' input
 
-      // post request
+  // post request to back end that sends Broker Port and JMX Exporter Port
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (portInput) {
       fetch('/admin/brokerAddress', {
         method: 'POST',
         headers: {
@@ -44,9 +36,9 @@ function Welcome({ setRedirect, setJMXPort }) {
       setJMXPort(jMXInput);
     }
     setRedirect(true);
-    // setPortInput(''); // clear out the port address input or keep displaying current port?
   };
 
+  // Material UI styling
   const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -54,20 +46,12 @@ function Welcome({ setRedirect, setJMXPort }) {
         width: '40ch',
       },
     },
-    // textfield: {
-    //   backgroundColor: '#D4CECD',
-    //   opacity: 50,
-    //   fontColor: 'white',
-    // },
   }));
 
   const classes = useStyles();
 
-  // render() {
   return (
     <div id='welcomeContainer'>
-      {/* <h2>KAFKA SPECKS</h2> */}
-
       <LogoGoesBrrr>
         <img
           className='rotate'
@@ -78,9 +62,6 @@ function Welcome({ setRedirect, setJMXPort }) {
         <div id='klustr'>klustr</div>
       </LogoGoesBrrr>
 
-      {/* <p id='welcomeText'>
-            To get started, please enter your Port Address on the left.
-          </p> */}
       <form id='inputs' className={classes.root} noValidate>
         <TextField
           className={classes.textfield}
@@ -107,23 +88,6 @@ function Welcome({ setRedirect, setJMXPort }) {
           Submit
         </Button>
       </form>
-      {/* <div id='portSubmit'>
-        <div>
-          <label htmlFor='portInput'></label>
-        </div>
-
-        <input
-          type='text'
-          id='portInput'
-          name='portInput'
-          placeholder='Port Address'
-          value={portInput}
-          onChange={(e) => setPortInput(e.target.value)}
-        /> */}
-      {/* <button type='submit' onClick={handleSubmit}>
-          Submit
-        </button> */}
-      {/* </div> */}
     </div>
   );
 }

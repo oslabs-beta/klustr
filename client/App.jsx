@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Sidebar from './containers/SidebarContainer.jsx';
+import Welcome from './containers/WelcomeContainer.jsx';
 import ClusterContainer from './containers/ClusterContainer.jsx';
 import MetricsContainer from './containers/MetricsContainer.jsx';
-import Welcome from './components/Welcome.jsx';
+import ClusterNodeContainer from './containers/ClusterNodeContainer.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
-import ClusterNodeContainer from './components/ClusterNodeContainer.jsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from './components/Drawer.jsx';
-import { blue } from '@material-ui/core/colors';
 
+// Material UI Styling
 const drawerWidth = 100;
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +32,7 @@ function App() {
   const [jMXPort, setJMXPort] = useState('');
   let display;
 
+  // if required port addresses are given, user is redirected automatically to the Cluster Overview
   if (!redirect) {
     display = (
       <Route exact path='/'>
@@ -48,10 +49,11 @@ function App() {
 
   const classes = useStyles();
 
+  // Routers
   return (
     <div className={classes.container}>
       <div className={classes.drawer}>
-        <Drawer setRedirect={setRedirect} />
+        <Sidebar setRedirect={setRedirect} />
       </div>
       <div className={classes.content}>
         <Switch>
