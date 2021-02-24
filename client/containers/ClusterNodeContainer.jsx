@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ClusterNode } from './ClusterNode.jsx';
+import { ClusterNode } from '../components/ClusterNode.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors/';
 
+// Material UI Styling
 const useStyles = makeStyles({
   root: {
     backgroundColor: grey[300],
@@ -48,7 +49,6 @@ function ClusterNodeContainer({}) {
 
   return (
     <div>
-      {/* <h1>Visual Overview of the Cluster</h1> */}
       <Card className={classes.root}>
         <CardContent>
           <Typography className={classes.title} align='center'>

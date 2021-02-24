@@ -6,17 +6,17 @@ import {
   List,
   ListItemIcon,
   ListItemText,
+  Divider,
 } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import BubbleChartIcon from '@material-ui/icons/BubbleChart';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import InfoIcon from '@material-ui/icons/Info';
-import Divider from '@material-ui/core/Divider';
 import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
 
-const Drawer = (props) => {
+const Sidebar = (props) => {
   const { history, setRedirect } = props;
   const itemsList = [
     {
@@ -85,4 +85,4 @@ const EyeGlass = styled.div`
   padding-bottom: 0;
 `;
 
-export default withRouter(Drawer);
+export default withRouter(Sidebar);

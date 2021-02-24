@@ -1,26 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import BrokerTable from '../components/Broker.jsx';
-import BrokerBox from '../components/BrokerBox.jsx';
-import TopicBox from '../components/TopicBox.jsx';
-import ConsumersBox from '../components/ConsumersBox.jsx';
-import styled, { css } from 'styled-components';
 import { Grid, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import {
-  red,
-  pink,
-  purple,
-  grey,
-  indigo,
-  deepPurple,
-  blue,
-} from '@material-ui/core/colors/';
+import { red, pink, purple } from '@material-ui/core/colors/';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
-import Button from '@material-ui/core/Button';
 import TopicsTable from '../components/TopicsTable.jsx';
 import ConsumersTable from '../components/ConsumersTable.jsx';
 
@@ -64,21 +51,13 @@ const useStyles = makeStyles({
 });
 
 function ClusterContainer({}) {
-  // hooks
-  // Cluster ID (string) ** Needs to be verified by Team 2 (need to be grabbed from describe cluster)
-  // Brokers Info (Array of Objects)
-  // Topics (Array of Strings)
-  // Partitions (Array of Objects) ** May not be needed?
-  // Offsets (Array of Objects)
-  // Consumer Group (Array of Objects)
-  // In object: Consumer ID
   const [clusterId, setClusterId] = useState('');
   const [brokers, setBrokers] = useState([]);
   const [topics, setTopics] = useState([]);
   const [consumers, setConsumers] = useState([]);
   const [selectedTable, setSelectedTable] = useState([]);
 
-  // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in Dashboard Container
+  // Fetch - GET all metrics for Metrics Container upon putting in a Port Address in the Welcome Page
 
   const fetchTopics = () => {
     fetch('/admin/topics', {
@@ -207,12 +186,6 @@ function ClusterContainer({}) {
         {clusterCards}
       </Grid>
       {selectedTable}
-      {/* <BrokerTable brokers={brokers} />
-      <TopicsTable topics={topics} />
-      <ConsumersTable consumers={consumers} /> */}
-      {/* <BrokerBox clusterId={clusterId} brokers={brokers} /> */}
-      {/* <TopicBox topics={topics} /> */}
-      {/* <ConsumersBox consumers={consumers} /> */}
     </>
   );
 }
