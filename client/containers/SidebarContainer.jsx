@@ -16,6 +16,8 @@ import InfoIcon from '@material-ui/icons/Info';
 import styled, { css } from 'styled-components';
 import tempLogo from '../LogoDots.svg';
 
+
+// Links on the left side of the application 
 const Sidebar = (props) => {
   const { history, setRedirect } = props;
   const itemsList = [

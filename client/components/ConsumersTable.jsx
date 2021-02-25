@@ -50,7 +50,6 @@ function Row({ groupId }) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         // filters the data from the fetch request to make consumers an array of member Ids instead of an object
         const consumerMemberIDs = data.map((obj) => obj.memberId);
         setConsumers(consumerMemberIDs);

@@ -2,9 +2,7 @@ const fetch = require('node-fetch');
 
 const jmxController = {};
 
-// fetch request from Slack
 jmxController.getMetrics = (req, res, next) => {
-  // fetch('http://23.20.153.187:7075/')
   fetch(`http://${req.params.port}/`)
     .then((response) => {
       return response.text();
@@ -17,7 +15,6 @@ jmxController.getMetrics = (req, res, next) => {
 };
 
 jmxController.getActiveControllers = (req, res, next) => {
-  // activecontrollercount 123423452.0
   const matches = res.locals.response.match(/activecontrollercount \d+.\d+/g);
   const convertedToNum = Number(matches[0].match(/\d.*/g)[0]);
   res.locals.activeControllers = convertedToNum;

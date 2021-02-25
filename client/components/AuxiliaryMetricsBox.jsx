@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import AuxiliaryMetrics from './AuxiliaryMetrics.jsx';
 import MetricsDropdown from './MetricsDropdown.jsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,15 +6,15 @@ import Button from '@material-ui/core/Button';
 
 // Component to Handle Auxiliary Metrics from JMX Exporter
 const AuxiliaryMetricsBox = ({ jMXPort }) => {
-  const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); // {disk_write_bytes: 198273}
+  const [auxiliaryMetrics, setAuxiliaryMetrics] = useState({}); 
   const [postMetrics, setPostMetrics] = useState([]);
   const [pause, setPause] = useState(false);
+
+  // pauseRef allows the current state of pause to be accessed inside of setTimeout in setAuxiliaryMetrics
   const pauseRef = useRef(pause);
   pauseRef.current = pause;
 
   const fetchAuxiliaryMetrics = () => {
-    console.log('fetching aux metrics');
-    console.log(postMetrics);
     fetch(`/jmx/advancedMetrics/${jMXPort}`, {
       method: 'POST',
       headers: {

@@ -92,11 +92,11 @@ function ClusterContainer({}) {
         setBrokers((brokers) => {
           brokers = data.brokers;
           return brokers;
-        }); //brokers property, returns  [ { nodeId: 0, host: 'Cerebro', port: 9092 } ]
+        }); //brokers property, returns  [ { nodeId: 0, host: 'Comp Name', port: 9092 } ]
         setClusterId((clusterId) => {
           clusterId = data.clusterId;
           return clusterId;
-        }); //clusterID property, returns '1_le6xdKSCuBQUa6duOmcg'
+        }); //clusterID property, returns 'cluster ID number'
       })
       .catch((err) => console.log(err));
   };
@@ -112,7 +112,6 @@ function ClusterContainer({}) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setConsumers(data);
       }) // array of objects (consumers) [{'groupId': 'test-group' }]
       .catch((err) => console.log(err));
