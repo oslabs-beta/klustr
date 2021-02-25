@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "Team SPECKtacular",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/oslabs-beta/KafkaSPECKs/issues"
   },

@@ -70,7 +70,7 @@ export default function About() {
                 <strong>author:</strong> Team SPECKtacular
               </Typography>
               <Typography variant='subtitle1' color='textSecondary'>
-                <strong>license:</strong> ISC
+                <strong>license:</strong> MIT
               </Typography>
               <Typography variant='subtitle1' color='textSecondary'>
                 <strong>repository:</strong>
