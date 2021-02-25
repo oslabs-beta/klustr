@@ -19,6 +19,10 @@ function Welcome({ setRedirect, setJMXPort }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // if (!portInput || !jMXInput) {
+    //   alert('Please enter the required ports');
+    // }
+
     if (portInput) {
       fetch('/admin/brokerAddress', {
         method: 'POST',
@@ -65,16 +69,20 @@ function Welcome({ setRedirect, setJMXPort }) {
       <form id='inputs' className={classes.root} noValidate>
         <TextField
           className={classes.textfield}
-          id='outlined-basic'
           label='Enter Broker Port'
+          helperText='required'
+          required
+          id='standard-required'
           onChange={(event) => {
             setPortInput(event.target.value);
           }}
         />
         <TextField
           className={classes.textfield}
-          id='outlined-basic'
           label='Enter Exporter Port'
+          helperText='required'
+          required
+          id='standard-required'
           onChange={(event) => {
             setJMXInput(event.target.value);
           }}
