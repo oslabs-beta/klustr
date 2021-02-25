@@ -18,6 +18,8 @@ const useStyles = makeStyles({
   },
 });
 
+// table for brokers in ClusterContainer
+
 export default function BrokersTable({ brokers }) {
   const classes = useStyles();
 

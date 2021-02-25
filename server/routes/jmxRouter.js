@@ -3,6 +3,7 @@ const router = express.Router();
 
 const jmxController = require('../controllers/jmxController');
 
+//Returns core metrics in an object with keys activeControllers, replicatedPartitions and offlinePartitions
 router.get(
   '/metrics/:port',
   jmxController.getMetrics,
@@ -23,6 +24,7 @@ router.get(
 //CPU usage => cpu_seconds_total
 //Disk usage write => disk_write_bytes
 //Disk usage read => disk_read_bytes
+//more metrics listed in component "MetricsDropdown"
 router.post(
   '/advancedMetrics/:port',
   jmxController.getMetrics,

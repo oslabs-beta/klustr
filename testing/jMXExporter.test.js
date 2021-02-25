@@ -1,7 +1,7 @@
 const request = require('supertest');
 
 const server = 'http://localhost:3000'; //must connect to server before running tests
-const jMXPort = '23.20.153.187:7075'; //must expose JMX metrics port before running tests
+const jMXPort = 'localhost:7075'; //must expose JMX metrics port before running tests
 const advancedMetrics = {
   metrics: [
     'brokertopicmetrics_bytesin_total',

@@ -4,20 +4,8 @@ import { Line } from 'react-chartjs-2';
 const LineGraphMetrics = ({ metricData, chartOptions, chartLabel }) => {
   const { bkgdColor, brdrColor, labelsArray, titleObj, yConfig } = chartOptions;
   const [data, setData] = useState();
-  console.log(metricData);
-
-  //const metricDataLabels = [0]
-  // const graph = (
-  //   <Line
-  //     data={data}
-  //     height={500}
-  //     options={options}
-  //     // ref={(reference) => (chartRef = reference)}
-  //   />
-  // );
-
-  let chartRef;
-
+  
+  // creates data for chart using data from metrics
   function genData() {
     return {
       labels: labelsArray,
@@ -40,16 +28,10 @@ const LineGraphMetrics = ({ metricData, chartOptions, chartLabel }) => {
       yAxes: yConfig,
     },
   };
-
+  
+  // every time the data for a graph changes, the graph is rerendered 
   useEffect(() => {
-    // const interval = setInterval(() => {
-    //   //setDataLabel()
-    //   setData(genData())
-    // }, 5000);
-
-    // return () => clearInterval(interval);
     setData(genData());
-    // chartRef.chartInstance.update();
   }, [...metricData]);
 
   return (
@@ -58,7 +40,6 @@ const LineGraphMetrics = ({ metricData, chartOptions, chartLabel }) => {
         data={data}
         height={375}
         options={options}
-        ref={(reference) => (chartRef = reference)}
       />
     </div>
   );
