@@ -4,16 +4,10 @@ import { Grid } from '@material-ui/core';
 
 const CoreMetricsBox = ({ jMXPort }) => {
   const [coreMetrics, setCoreMetrics] = useState({});
-  // {
-  //   activeControllers: 1,
-  //   replicatedPartitions: 0,
-  //   offlinePartitions: 0
-  // }
 
+  // fetch request gathers core metrics active controller, underreplicated partitions and offline partitions
   const fetchCoreMetrics = () => {
-    console.log('fetching core metrics');
     fetch(`/jmx/metrics/${jMXPort}`, {
-      // fetch(`/jmx/metrics/23.20.153.187:7075`
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

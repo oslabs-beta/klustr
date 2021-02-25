@@ -40,7 +40,6 @@ const AuxiliaryMetrics = ({
           variant='contained'
           className={classes.pausestart}
           onClick={() => {
-            console.log(pause);
             if (pause) {
               setPause(false);
               fetchAuxMetrics();

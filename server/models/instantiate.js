@@ -2,7 +2,7 @@ const { Kafka } = require('kafkajs');
 
 const instantiate = async (brokers) => {
   const kafka = new Kafka({
-    clientId: 'kafkoala',
+    clientId: 'klustr',
     brokers: brokers,
   });
 
@@ -12,7 +12,7 @@ const instantiate = async (brokers) => {
     try {
       await admin.connect();
     } catch (err) {
-      console.log(err);
+      next(err);
     }
   };
 

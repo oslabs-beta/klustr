@@ -22,6 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
+// displays core metric in a box
 export default function CoreMetricsCard({ metric, name }) {
   const classes = useStyles();
 

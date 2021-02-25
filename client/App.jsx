@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// top level componenet for klustr
 function App() {
   const [redirect, setRedirect] = useState(false);
   const [jMXPort, setJMXPort] = useState('');

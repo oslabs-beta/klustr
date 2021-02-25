@@ -33,7 +33,6 @@ const useRowStyles = makeStyles({
 
 // child component to fetch Topic partition and offsets
 function Row({ topic }) {
-  console.log('topic:', topic);
   const [open, setOpen] = useState(false);
   const [offsets, setOffsets] = useState([]);
 
@@ -48,9 +47,8 @@ function Row({ topic }) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setOffsets(data.offsets);
-      }) // returns an array of partition objects ([{"partition": 0,"offset": "21"}])
+      }) 
       .catch((err) => console.log(err));
   };
 
