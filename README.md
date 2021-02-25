@@ -53,17 +53,23 @@
 </p>
 
 ## Installation
-Klustr requires the following JMX exporter to run: 
-https://github.com/Khyunwoo1/JMXScripter
+- Klustr requires configuration with JMX Exporter to capture advanced metrics. If you do not have a port configured with JMX Exporter, go to https://github.com/Khyunwoo1/JMXScripter and follow the directions in that repo.
+- Clone this repo ````https://github.com/oslabs-beta/klustr.git````
+- Run the following commands in the root folder
+````npm install````
+````npm run build````
+````npm run start````
+- Navigate to http://localhost:3000/ 
+- Enter the port address for one of your Kafka brokers, and the JMX Exporter port address to see your cluster information and metrics 
 
 
 
 ## Klustr Engineering Team
-[Paul Kim](https://github.com/Khyunwoo1)
-| [Katrina Villanueva](https://github.com/klgvillanueva)
-| [Cris Newsome](https://github.com/angelEQ)
+[Shah Chaudri](https://github.com/shahprose)
+| [Paul Kim](https://github.com/Khyunwoo1)
 | [Eric Tacher](https://github.com/BreakerBeam)
-| [Shah Chaudri](https://github.com/shahprose)
+| [Cris Newsome](https://github.com/angelEQ)
+| [Katrina Villanueva](https://github.com/klgvillanueva)
 
 We welcome contributions, so please feel free to fork, clone, and help klustr grow! Remember to leave a [![GitHub stars](https://img.shields.io/github/stars/oslabs-beta/klustr?style=social&label=Star&)](https://github.com/oslabs-beta/klustr/stargazers) if you'd like to support our work!
 
