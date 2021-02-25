@@ -53,6 +53,8 @@
 </p>
 
 ## Installation
+Klustr requires the following JMX exporter to run: 
+https://github.com/Khyunwoo1/JMXScripter
 
 
 
