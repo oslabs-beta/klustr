@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <p align="center">
   <a href="http://kluster.app/">
@@ -54,6 +53,8 @@
 </p>
 
 ## Installation
+Klustr requires the following JMX exporter to run: 
+https://github.com/Khyunwoo1/JMXScripter
 
 
 
@@ -68,10 +69,3 @@ We welcome contributions, so please feel free to fork, clone, and help klustr gr
 
 ## License
 Released under the MIT License
-=======
-# klustr
-
-
-# Requires the JMX Exporter Script to Run
-https://github.com/Khyunwoo1/JMXScripter
->>>>>>> 9da797d5a2747ad29a67bcfbcc71cb265433d5ec
