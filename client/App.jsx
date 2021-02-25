@@ -6,6 +6,7 @@ import ClusterContainer from './containers/ClusterContainer.jsx';
 import MetricsContainer from './containers/MetricsContainer.jsx';
 import ClusterNodeContainer from './containers/ClusterNodeContainer.jsx';
 import About from './containers/AboutContainer.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 // Material UI Styling
@@ -73,6 +74,7 @@ function App() {
           <Route path='/about'>
             <About setRedirect={setRedirect} />
           </Route>
+          <Route component={ErrorPage} />
         </Switch>
       </div>
     </div>
