@@ -39,7 +39,7 @@ function MetricsDropdown({ setPostMetrics }) {
             {...params}
             variant='outlined'
             label='Metrics'
-            placeholder='Favorites'
+            placeholder='Selections'
             value='selectedMetrics'
           />
         )}

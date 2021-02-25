@@ -1,7 +1,7 @@
 {
   "name": "klustr",
   "version": "1.0.0",
-  "description": "",
+  "description": "open-source visualization monitoring tool for Kafka clusters",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production nodemon server/server.js",
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oslabs-beta/KafkaSPECKs.git"
+    "url": "git+https://github.com/oslabs-beta/klustr.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team SPECKtacular",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/oslabs-beta/KafkaSPECKs/issues"
