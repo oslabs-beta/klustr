@@ -43,7 +43,7 @@ const Sidebar = (props) => {
       onClick: () => history.push('/brokerView'),
     },
     {
-      text: 'About Us',
+      text: 'About',
       icon: <InfoIcon />,
       onClick: () => history.push('/about'),
     },

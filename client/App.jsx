@@ -5,7 +5,7 @@ import Welcome from './containers/WelcomeContainer.jsx';
 import ClusterContainer from './containers/ClusterContainer.jsx';
 import MetricsContainer from './containers/MetricsContainer.jsx';
 import ClusterNodeContainer from './containers/ClusterNodeContainer.jsx';
-import ErrorPage from './components/ErrorPage.jsx';
+import About from './containers/AboutContainer.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 // Material UI Styling
@@ -70,8 +70,9 @@ function App() {
           <Route path='/brokerView'>
             <ClusterNodeContainer setRedirect={setRedirect} />
           </Route>
-          {/* <Route path='/about' component={About} /> */}
-          <Route component={ErrorPage} />
+          <Route path='/about'>
+            <About setRedirect={setRedirect} />
+          </Route>
         </Switch>
       </div>
     </div>
