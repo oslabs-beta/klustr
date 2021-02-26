@@ -53,7 +53,7 @@
 </p>
 
 ## Installation
-- Klustr requires configuration with JMX Exporter to capture advanced metrics. If you do not have a port configured with JMX Exporter, go to https://github.com/Khyunwoo1/JMXScripter and follow the directions in that repo.
+- Klustr requires configuration with JMX Exporter to capture advanced metrics. If you do not have a port configured with JMX Exporter, go to https://github.com/oslabs-beta/JMXScripter and follow the directions in that repo.
 - Clone this repo ````https://github.com/oslabs-beta/klustr.git````
 - Run the following commands in the root folder
 ````npm install````
